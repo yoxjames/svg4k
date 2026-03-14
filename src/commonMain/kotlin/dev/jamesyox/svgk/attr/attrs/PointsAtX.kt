@@ -1,0 +1,37 @@
+/*
+ * Copyright 2026 James Yox
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+package dev.jamesyox.svgk.attr.attrs
+
+import dev.jamesyox.svgk.attr.AttributeConsumer
+import dev.jamesyox.svgk.attr.AttributeContainer
+import dev.jamesyox.svgk.attr.svgString
+import dev.jamesyox.svgk.meta.noGet
+
+/**
+ * The pointsAtX attribute represents the x location in the coordinate system established by
+ * attribute [primitiveUnits] on the [Filter] element of the point at which the light source is pointing.
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.PointsAtX
+)
+public var pointsAtX: Number
+    get() = noGet()
+    set(value) {
+        ac["pointsAtX"] = value.svgString
+    }

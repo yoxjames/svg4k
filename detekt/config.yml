@@ -1,0 +1,28 @@
+style:
+  # This rule simply drives me mad.
+  MagicNumber:
+    active: false
+  ForbiddenComment:
+    active: false # I am using TODO to track non blocking in progress things.
+naming:
+  # Never liked this rule. I do what I want!
+  TopLevelPropertyNaming:
+    active: false
+complexity:
+  CyclomaticComplexMethod:
+    ignoreSingleWhenExpression: true
+  # I think this is silly in a language with named parameters.
+  LongParameterList:
+    active: false
+comments:
+  KDocReferencesNonPublicProperty:
+    active: true
+  OutdatedDocumentation:
+    active: true
+  UndocumentedPublicClass:
+    active: true
+    ignoreDefaultCompanionObject: true
+  UndocumentedPublicFunction:
+    active: true
+  UndocumentedPublicProperty:
+    active: true

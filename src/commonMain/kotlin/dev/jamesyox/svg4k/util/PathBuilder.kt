@@ -97,7 +97,7 @@ public fun c(
     dx: Number,
     dy: Number
 ) {
-    builder.add(PathCommand.c(dx1 = dx1, dy1 = dy1, dx2 = dx2, dy2 = dy2, dx = dx, dy = dy))
+    builder.add(PathCommand._c(dx1 = dx1, dy1 = dy1, dx2 = dx2, dy2 = dy2, dx = dx, dy = dy))
 }
 context(_: PathBuilder)
 public fun CubicCurveRelative(
@@ -122,7 +122,7 @@ public fun HorizontalLineTo(x: Number) {
 
 context(builder: PathBuilder)
 public fun h(dx: Number) {
-    builder.add(PathCommand.h(dx = dx))
+    builder.add(PathCommand._h(dx = dx))
 }
 context(_: PathBuilder)
 public fun HorizontalLine(dx: Number) {
@@ -140,7 +140,7 @@ public fun VerticalLine(y: Number) {
 
 context(builder: PathBuilder)
 public fun v(dy: Number) {
-    builder.add(PathCommand.v(dy = dy))
+    builder.add(PathCommand._v(dy = dy))
 }
 context(_: PathBuilder)
 public fun VerticalLineTo(dy: Number) {
@@ -167,7 +167,7 @@ public fun MoveTo(x: Number, y: Number) {
 
 context(builder: PathBuilder)
 public fun m(dx: Number, dy: Number) {
-    builder.add(PathCommand.m(dx = dx, dy = dy))
+    builder.add(PathCommand._m(dx = dx, dy = dy))
 }
 context(_: PathBuilder)
 public fun Move(x: Number, y: Number) {

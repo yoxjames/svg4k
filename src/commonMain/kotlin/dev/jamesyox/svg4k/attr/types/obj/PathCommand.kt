@@ -46,7 +46,7 @@ internal sealed interface PathCommand : SvgAttributeType {
     }
 
     @Suppress("ktlint:standard:class-naming")
-    class c(
+    class _c(
         dx1: Number,
         dy1: Number,
         dx2: Number,
@@ -64,7 +64,7 @@ internal sealed interface PathCommand : SvgAttributeType {
     }
 
     @Suppress("ktlint:standard:class-naming")
-    class h(
+    class _h(
         dx: Number,
     ) : PathCommand {
         override val svgString: String = "h $dx"
@@ -77,7 +77,7 @@ internal sealed interface PathCommand : SvgAttributeType {
     }
 
     @Suppress("ktlint:standard:class-naming")
-    class v(
+    class _v(
         dy: Number,
     ) : PathCommand {
         override val svgString: String = "v $dy"
@@ -98,7 +98,7 @@ internal sealed interface PathCommand : SvgAttributeType {
     }
 
     @Suppress("ktlint:standard:class-naming")
-    class m(
+    class _m(
         dx: Number,
         dy: Number,
     ) : PathCommand {

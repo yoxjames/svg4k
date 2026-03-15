@@ -32,7 +32,7 @@ plugins {
 }
 
 group = "dev.jamesyox"
-version = "0.1.0"
+version = "0.1.0-alpha.1"
 
 repositories {
     mavenCentral()
@@ -179,7 +179,9 @@ publishing {
             }
 
             scm {
-                // TODO CRITICAL: Add scm info
+                connection = "scm:git:github.com/yoxjames/svg4k.git"
+                developerConnection = "scm:git:ssh://github.com/yoxjames/svg4k.git"
+                url = "https://github.com/yoxjames/svg4k"
             }
         }
     }

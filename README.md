@@ -27,8 +27,8 @@ If you use Gradle you should be able to add the following to your dependencies t
 implementation("dev.jamesyox:svg4k:0.1.0-alpha.1")
 ```
 
-You are now free to use this in a toy project, however you _must_ enable context parameters. This library is based around
-that feature.
+You are now free to use this in a project, however you _must_ enable context parameters. This library is based around
+that feature. 
 
 ```kotlin
 // build.gradle.kts
@@ -38,8 +38,11 @@ kotlin {
     }
 }
 // ....
-implementation("dev.jamesyox:svg4k:0.1.0-SNAPSHOT")
+implementation("dev.jamesyox:svg4k:0.1.0-alpha.1")
 ```
+
+Please note that this library is an alpha and is based around a currently experimental Kotlin language feature. Therefore, you should 
+use caution before using this for anything too serious.
 
 ### Stream
 If you are familiar with the `kotlinx-html` then the syntax should feel pretty familiar:

@@ -15,7 +15,21 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
-rootProject.name = "svg4k"
+package dev.jamesyox.svg4k.attr.attrs.other
+
+import dev.jamesyox.svg4k.attr.AttributeConsumer
+import dev.jamesyox.svg4k.attr.AttributeContainer
+import dev.jamesyox.svg4k.meta.noGet
+
+/**
+ * The XML namespace
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.Xmlns,
+)
+public var xmlns: String
+    get() = noGet()
+    set(value) {
+        ac["xmlns"] = value
+    }

@@ -15,7 +15,11 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
-rootProject.name = "svg4k"
+@file:Suppress("ktlint")
+
+package dev.jamesyox.svg4k.attr.attrs
+
+/*
+ * Omitting since this is not available on WebKit based browsers at this time and it's complex and would be hard to type
+ * correctly.
+ */

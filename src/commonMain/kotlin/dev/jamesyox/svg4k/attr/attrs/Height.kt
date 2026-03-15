@@ -15,7 +15,24 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
-rootProject.name = "svg4k"
+package dev.jamesyox.svg4k.attr.attrs
+
+import dev.jamesyox.svg4k.attr.AttributeConsumer
+import dev.jamesyox.svg4k.attr.AttributeContainer
+import dev.jamesyox.svg4k.attr.set
+import dev.jamesyox.svg4k.attr.types.obj.LengthOrPercentage
+import dev.jamesyox.svg4k.meta.noGet
+
+/**
+ * The filter attribute specifies the filter effects defined by the <filter> element that shall be applied to its
+ * element.
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.Height
+)
+public var height: LengthOrPercentage
+    get() = noGet()
+    set(value) {
+        ac["height"] = value
+    }

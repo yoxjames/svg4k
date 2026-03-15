@@ -15,7 +15,13 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
+package dev.jamesyox.svg4k.attr.types.obj
+
+import dev.jamesyox.svg4k.attr.SvgAttributeType
+
+public class Point(
+    x: Number,
+    y: Number,
+) : SvgAttributeType {
+    override val svgString: String = "$x,$y"
 }
-rootProject.name = "svg4k"

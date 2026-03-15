@@ -1,4 +1,4 @@
-# kdsl-svg
+# svg4k
 This library is an implementation of the current [second edition of the SVG 1.1 spec](https://www.w3.org/TR/SVG11/) 
 as a Kotlin DSL (or type safe builder). This library strives for maximal type safety and the avoidance of string typing 
 as much as possible. This library makes use of the currently experimental multiple 
@@ -27,7 +27,7 @@ kotlin {
     }
 }
 // ....
-implementation("dev.jamesyox:kdsl-svg:0.1.0-SNAPSHOT")
+implementation("dev.jamesyox:svg4k:0.1.0-SNAPSHOT")
 ```
 
 ### Stream
@@ -110,6 +110,7 @@ val domElement: SVGElement = createSvg {
 }
 
 domElement.onclick = { /* ... */ } // This is a DOM element so you can use browser DOM methods
+rect.onclick = { /* ... */ } // Same here.
 ```
 
 ## Using with kotlinx-html
@@ -118,8 +119,8 @@ with `kotlinx-html`. Ideally I want to do something like this:
 ```kotlin
 html { // kotlinx-html
     body { // kotlin-html
-        svg { // kdsl-svg >>> THIS DOES NOT CURRENTLY WORK
-            // ... // kdsl-svg
+        svg { // svg4k >>> THIS DOES NOT CURRENTLY WORK
+            // ... // svg4k
         }
     }
 }
@@ -128,35 +129,35 @@ With context parameters this should be possible. On most targets it pretty much 
 like this:
 
 ```kotlin
-private fun HTMLTag.svgk(
+private fun HTMLTag.svg4k(
     block: context(AttributeConsumer, @SvgTagDSL Svg) () -> Unit
 ) {
     unsafe {
-        raw(svgString { dev.jamesyox.svgk.tags.svg { block() } })
+        raw(svgString { dev.jamesyox.svg4k.tags.svg { block() } })
     }
 }
 ```
 
-This function bridges `kotlinx-html` to `kdsl-svg` by basically tapping into the unsafe raw text api 
+This function bridges `kotlinx-html` to `svg4k` by basically tapping into the unsafe raw text api 
 from `kotlinx-html`. This works for many use cases but if you attempt this same approach on a `TagConsumer<T>` that uses
 the DOM, this will not work. Appending text will not generate dom elements. For that you'll need something much more
 ugly like this:
 
 ```kotlin
 fun <T> TagConsumer<HTMLElement>.svgMagick(
-    block: context(dev.jamesyox.svgk.TagConsumer<SVGElement>, RootContainer) () -> T
+  block: context(dev.jamesyox.svg4k.TagConsumer<SVGElement>, RootContainer) () -> T
 ): T {
-    val tagConsumer = JsDomTagConsumer(document)
-    val output = block(tagConsumer, RootContainer)
-    val svgDom = tagConsumer.output()
-    val hackDiv = div { } // We simply need to create a DOM element to access the parent (wasteful)
-    val currentNode = hackDiv.parentNode
-    currentNode?.removeChild(hackDiv)
+  val tagConsumer = JsDomTagConsumer(document)
+  val output = block(tagConsumer, RootContainer)
+  val svgDom = tagConsumer.output()
+  val hackDiv = div { } // We simply need to create a DOM element to access the parent (wasteful)
+  val currentNode = hackDiv.parentNode
+  currentNode?.removeChild(hackDiv)
 
-    currentNode?.let {
-        svgDom.forEach { child -> it.appendChild(child) }
-    }
-    return output
+  currentNode?.let {
+    svgDom.forEach { child -> it.appendChild(child) }
+  }
+  return output
 }
 ```
 This is not super ideal, and I am planning to open a PR for `kotlinx-html` to open up better interop pathways, but I 

@@ -15,7 +15,22 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
-rootProject.name = "svg4k"
+package dev.jamesyox.svg4k.attr.attrs
+
+import dev.jamesyox.svg4k.attr.AttributeConsumer
+import dev.jamesyox.svg4k.attr.AttributeContainer
+import dev.jamesyox.svg4k.meta.noGet
+
+/**
+ * The `lang` attribute specifies the primary language used in contents and attributes containing text content of
+ * particular elements.
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.Lang
+)
+public var lang: String
+    get() = noGet()
+    set(value) {
+        ac["lang"] = value
+    }

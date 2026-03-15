@@ -15,7 +15,16 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
+package dev.jamesyox.svg4k.attr.types.obj
+
+import dev.jamesyox.svg4k.attr.SvgAttributeType
+
+/**
+ * A pair of [Number]s, where the second [Number] is optional.
+ */
+public class NumberOptionalNumber(
+    number: Number,
+    optionalNumber: Number?,
+) : SvgAttributeType {
+    override val svgString: String = "$number" + (optionalNumber?.let { ", $it" } ?: "")
 }
-rootProject.name = "svg4k"

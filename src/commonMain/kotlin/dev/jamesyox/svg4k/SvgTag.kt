@@ -15,7 +15,17 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
+package dev.jamesyox.svg4k
+
+import dev.jamesyox.svg4k.attr.AttributeContainer
+
+public interface SvgTag :
+    // Attributes available on every SVG tag or "global attributes"
+    AttributeContainer.Autofocus,
+    AttributeContainer.Class,
+    AttributeContainer.Id,
+    AttributeContainer.Lang,
+    AttributeContainer.Style,
+    AttributeContainer.Tabindex {
+    public val tagName: String
 }
-rootProject.name = "svg4k"

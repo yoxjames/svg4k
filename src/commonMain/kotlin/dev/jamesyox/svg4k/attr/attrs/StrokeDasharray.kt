@@ -15,7 +15,23 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
-rootProject.name = "svg4k"
+package dev.jamesyox.svg4k.attr.attrs
+
+import dev.jamesyox.svg4k.attr.AttributeConsumer
+import dev.jamesyox.svg4k.attr.AttributeContainer
+import dev.jamesyox.svg4k.attr.svgString
+import dev.jamesyox.svg4k.meta.noGet
+
+/**
+ * The `stroke-dasharray` attribute is a presentation attribute defining the pattern of dashes and gaps
+ * used to paint the outline of the shape.
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.StrokeDasharray
+)
+public var strokeDasharray: List<Number>
+    get() = noGet()
+    set(value) {
+        ac["stroke-dasharray"] = value.svgString(" ")
+    }

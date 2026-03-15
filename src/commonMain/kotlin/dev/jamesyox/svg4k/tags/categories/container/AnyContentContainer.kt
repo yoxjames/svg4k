@@ -15,7 +15,9 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
-rootProject.name = "svg4k"
+package dev.jamesyox.svg4k.tags.categories.container
+
+// TODO: Should this have anything else?
+public interface AnyContentContainer :
+    AllElementContainer,
+    TextContentContainer

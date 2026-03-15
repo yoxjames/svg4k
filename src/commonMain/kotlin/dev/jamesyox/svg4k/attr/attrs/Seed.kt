@@ -15,7 +15,23 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
-rootProject.name = "svg4k"
+package dev.jamesyox.svg4k.attr.attrs
+
+import dev.jamesyox.svg4k.attr.AttributeConsumer
+import dev.jamesyox.svg4k.attr.AttributeContainer
+import dev.jamesyox.svg4k.attr.svgString
+import dev.jamesyox.svg4k.meta.noGet
+
+/**
+ * The seed attribute represents the starting number for the pseudo random number generator of the
+ * [dev.jamesyox.svg4k.tags.FeTurbulence] filter primitive.
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.Seed
+)
+public var seed: Number
+    get() = noGet()
+    set(value) {
+        ac["seed"] = value.svgString
+    }

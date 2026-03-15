@@ -15,7 +15,22 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
+package dev.jamesyox.svg4k.attr
+
+public interface AttributeConsumer {
+    public operator fun set(
+        key: String,
+        value: String,
+    )
+
+    public operator fun get(key: String): String?
+
+    public val attributesMap: Map<String, String>
 }
-rootProject.name = "svg4k"
+
+public operator fun AttributeConsumer.set(
+    key: String,
+    value: SvgAttributeType,
+) {
+    set(key, value.svgString)
+}

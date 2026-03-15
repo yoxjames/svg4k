@@ -15,7 +15,23 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
-rootProject.name = "svg4k"
+package dev.jamesyox.svg4k.attr.attrs
+
+import dev.jamesyox.svg4k.attr.AttributeConsumer
+import dev.jamesyox.svg4k.attr.AttributeContainer
+import dev.jamesyox.svg4k.meta.noGet
+
+// TODO: Poor typing. Complex type
+
+/**
+ * The font-variant attribute indicates whether the text is to be rendered using variations of the font's glyphs.
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.FontVariant
+)
+public var fontVariant: String
+    get() = noGet()
+    set(value) {
+        ac["font-variant"] = value
+    }

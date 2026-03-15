@@ -15,7 +15,10 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
-rootProject.name = "svg4k"
+@file:Suppress("ktlint")
+
+package dev.jamesyox.svg4k.attr.attrs
+
+/*
+ * Similar to CSS display. Complex but easy enough to implement. Saving for later
+ */

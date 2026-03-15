@@ -15,7 +15,23 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
-rootProject.name = "svg4k"
+package dev.jamesyox.svg4k.attr.attrs
+
+import dev.jamesyox.svg4k.attr.AttributeConsumer
+import dev.jamesyox.svg4k.attr.AttributeContainer
+import dev.jamesyox.svg4k.meta.noGet
+
+// TODO: Poorly typed
+
+/**
+ * The end attribute defines an end value for the animation that can constrain the active duration.
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.End,
+)
+public var end: String
+    get() = noGet()
+    set(value) {
+        ac["end"] = value
+    }

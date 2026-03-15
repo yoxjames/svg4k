@@ -15,7 +15,10 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
-rootProject.name = "svg4k"
+@file:Suppress("ktlint")
+
+package dev.jamesyox.svg4k.attr.attrs
+
+/*
+ * Not including this since this lib really only supports SVG 1.1 as of today.
+ */

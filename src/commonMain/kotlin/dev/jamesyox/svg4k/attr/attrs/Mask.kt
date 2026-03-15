@@ -15,7 +15,24 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
-rootProject.name = "svg4k"
+package dev.jamesyox.svg4k.attr.attrs
+
+import dev.jamesyox.svg4k.attr.AttributeConsumer
+import dev.jamesyox.svg4k.attr.AttributeContainer
+import dev.jamesyox.svg4k.attr.set
+import dev.jamesyox.svg4k.attr.types.obj.Url
+import dev.jamesyox.svg4k.meta.noGet
+
+/**
+ * The `mask` attribute is a presentation attribute mainly used to bind a given [dev.jamesyox.svg4k.tags.Mask]
+ * element with the element the attribute belongs to.
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.Mask
+)
+public var mask: Url
+    get() = noGet()
+    set(value) {
+        ac["mask"] = value
+    }

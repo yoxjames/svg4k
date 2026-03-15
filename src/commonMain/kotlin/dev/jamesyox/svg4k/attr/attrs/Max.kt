@@ -15,7 +15,23 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
-rootProject.name = "svg4k"
+package dev.jamesyox.svg4k.attr.attrs
+
+import dev.jamesyox.svg4k.attr.AttributeConsumer
+import dev.jamesyox.svg4k.attr.AttributeContainer
+import dev.jamesyox.svg4k.attr.svgString
+import dev.jamesyox.svg4k.meta.noGet
+import kotlin.time.Duration
+
+/**
+ * The `max` attribute specifies the maximum value of the active animation duration.
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.Max
+)
+public var max: Duration
+    get() = noGet()
+    set(value) {
+        ac["max"] = value.svgString
+    }

@@ -15,7 +15,22 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
-rootProject.name = "svg4k"
+package dev.jamesyox.svg4k.attr.attrs
+
+import dev.jamesyox.svg4k.attr.AttributeConsumer
+import dev.jamesyox.svg4k.attr.AttributeContainer
+import dev.jamesyox.svg4k.meta.noGet
+
+/**
+ * The `style` attribute allows to style an element using CSS declarations. It functions identically
+ * to the `style` attribute in HTML.
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.Style
+)
+public var style: String
+    get() = noGet()
+    set(value) {
+        ac["style"] = value
+    }

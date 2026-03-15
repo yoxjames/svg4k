@@ -15,7 +15,23 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
-rootProject.name = "svg4k"
+package dev.jamesyox.svg4k.attr.attrs
+
+import dev.jamesyox.svg4k.attr.AttributeConsumer
+import dev.jamesyox.svg4k.attr.AttributeContainer
+import dev.jamesyox.svg4k.attr.svgString
+import dev.jamesyox.svg4k.meta.noGet
+
+/**
+ * The `azimuth` attribute specifies the direction angle for the light source on the XY plane (clockwise), in degrees from
+ * the x axis.
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.Azimuth
+)
+public var azimuth: Number
+    get() = noGet()
+    set(value) {
+        ac["azimuth"] = value.svgString
+    }

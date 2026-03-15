@@ -15,7 +15,8 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
-rootProject.name = "svg4k"
+package dev.jamesyox.svg4k.tags.meta
+
+import dev.jamesyox.svg4k.tags.categories.container.AllElementContainer
+
+public data object UnsafeContainer : AllElementContainer

@@ -15,7 +15,24 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
-rootProject.name = "svg4k"
+package dev.jamesyox.svg4k.attr.attrs
+
+import dev.jamesyox.svg4k.attr.AttributeConsumer
+import dev.jamesyox.svg4k.attr.AttributeContainer
+import dev.jamesyox.svg4k.meta.noGet
+
+// TODO: Paint Type
+
+/**
+ * The `stroke` attribute is a presentation attribute defining the color (or any SVG paint servers
+ * like gradients or patterns) used to paint the outline of the shape.
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.Stroke
+)
+public var stroke: String
+    get() = noGet()
+    set(value) {
+        ac["stroke"] = value
+    }

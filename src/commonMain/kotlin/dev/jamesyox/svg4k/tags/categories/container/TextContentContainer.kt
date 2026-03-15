@@ -15,7 +15,13 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
+package dev.jamesyox.svg4k.tags.categories.container
+
+import dev.jamesyox.svg4k.TagConsumer
+
+public interface TextContentContainer
+
+context(tagConsumer: TagConsumer<T>, _: TextContentContainer)
+public operator fun <T> String.unaryPlus() {
+    tagConsumer.onTagContent(this)
 }
-rootProject.name = "svg4k"

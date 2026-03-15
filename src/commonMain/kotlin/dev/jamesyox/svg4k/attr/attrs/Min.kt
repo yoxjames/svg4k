@@ -15,7 +15,23 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
-rootProject.name = "svg4k"
+package dev.jamesyox.svg4k.attr.attrs
+
+import dev.jamesyox.svg4k.attr.AttributeConsumer
+import dev.jamesyox.svg4k.attr.AttributeContainer
+import dev.jamesyox.svg4k.attr.svgString
+import dev.jamesyox.svg4k.meta.noGet
+import kotlin.time.Duration
+
+/**
+ * The `min` attribute specifies the minimum value of the active animation duration.
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.Min
+)
+public var min: Duration
+    get() = noGet()
+    set(value) {
+        ac["min"] = value.svgString
+    }

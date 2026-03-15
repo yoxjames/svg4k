@@ -15,7 +15,22 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
-rootProject.name = "svg4k"
+package dev.jamesyox.svg4k.attr.attrs
+
+import dev.jamesyox.svg4k.attr.AttributeConsumer
+import dev.jamesyox.svg4k.attr.AttributeContainer
+import dev.jamesyox.svg4k.meta.noGet
+
+/**
+ * The attributeName attribute indicates the name of the CSS property or attribute of the target element that is going
+ * to be changed during an animation.
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.AttributeName
+)
+public var attributeName: String
+    get() = noGet()
+    set(value) {
+        ac["attributeName"] = value
+    }

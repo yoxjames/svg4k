@@ -15,7 +15,18 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
+package dev.jamesyox.svg4k.attr.types.obj
+
+import dev.jamesyox.svg4k.attr.SvgAttributeType
+
+// TODO: Finish this
+public sealed interface BasicShape : SvgAttributeType {
+    public class Inset(
+        public val top: LengthOrPercentage,
+        public val right: LengthOrPercentage,
+        public val bottom: LengthOrPercentage,
+        public val left: LengthOrPercentage,
+    ) : BasicShape {
+        override val svgString: String = "inset($top, $right, $bottom, $left)"
+    }
 }
-rootProject.name = "svg4k"

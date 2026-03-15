@@ -15,7 +15,23 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
-rootProject.name = "svg4k"
+package dev.jamesyox.svg4k.attr.attrs
+
+import dev.jamesyox.svg4k.attr.AttributeConsumer
+import dev.jamesyox.svg4k.attr.AttributeContainer
+import dev.jamesyox.svg4k.meta.noGet
+
+// TODO: COLOR TYPE
+
+/**
+ * The `lighting-color` attribute defines the color of the light source for lighting filter primitives.
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.LightingColor
+)
+public var lightingColor: String
+    get() = noGet()
+    set(value) {
+        ac["lighting-color"] = value
+    }

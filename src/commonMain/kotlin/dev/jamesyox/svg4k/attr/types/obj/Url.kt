@@ -15,7 +15,12 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
+package dev.jamesyox.svg4k.attr.types.obj
+
+import dev.jamesyox.svg4k.attr.SvgAttributeType
+
+public class Url internal constructor(
+    public val value: String,
+) : SvgAttributeType {
+    override val svgString: String = "url($value)"
 }
-rootProject.name = "svg4k"

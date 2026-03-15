@@ -15,7 +15,23 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
-rootProject.name = "svg4k"
+package dev.jamesyox.svg4k.attr.attrs
+
+import dev.jamesyox.svg4k.attr.AttributeConsumer
+import dev.jamesyox.svg4k.attr.AttributeContainer
+import dev.jamesyox.svg4k.meta.noGet
+
+// TODO: COLOR TYPE
+
+/**
+ * The `stop-color` attribute indicates what color to use at a gradient stop.
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.StopColor
+)
+public var stopColor: String
+    get() = noGet()
+    set(value) {
+        ac["stop-color"] = value
+    }

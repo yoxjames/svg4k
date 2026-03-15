@@ -15,7 +15,23 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
-rootProject.name = "svg4k"
+package dev.jamesyox.svg4k.attr.attrs
+
+import dev.jamesyox.svg4k.attr.AttributeConsumer
+import dev.jamesyox.svg4k.attr.AttributeContainer
+import dev.jamesyox.svg4k.meta.noGet
+
+// TODO: Loose typing
+
+/**
+ * The `media` attribute specifies a media query that must be matched for a style sheet to apply.
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.Media
+)
+public var media: String
+    get() = noGet()
+    set(value) {
+        ac["media"] = value
+    }

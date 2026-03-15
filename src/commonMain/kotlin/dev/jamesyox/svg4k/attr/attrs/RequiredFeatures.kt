@@ -15,7 +15,10 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
-rootProject.name = "svg4k"
+@file:Suppress("detekt")
+
+package dev.jamesyox.svg4k.attr.attrs
+
+/*
+ * Omitting since this is deprecated.
+ */

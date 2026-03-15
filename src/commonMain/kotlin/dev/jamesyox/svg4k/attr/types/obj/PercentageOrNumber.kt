@@ -15,7 +15,20 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
+package dev.jamesyox.svg4k.attr.types.obj
+
+import dev.jamesyox.svg4k.attr.SvgAttributeType
+import dev.jamesyox.svg4k.attr.WrappedNumberSvgAttributeType
+import dev.jamesyox.svg4k.attr.WrappedSvgAttributeType
+
+public sealed interface PercentageOrNumber : SvgAttributeType {
+    public class Percentage(
+        value: Pct,
+    ) : WrappedSvgAttributeType(value),
+        PercentageOrNumber
+
+    public class Number(
+        value: kotlin.Number,
+    ) : WrappedNumberSvgAttributeType(value),
+        PercentageOrNumber
 }
-rootProject.name = "svg4k"

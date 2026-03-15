@@ -15,7 +15,8 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
-rootProject.name = "svg4k"
+package dev.jamesyox.svg4k.tags.categories.category
+
+import dev.jamesyox.svg4k.SvgTag
+
+public interface GradientElement : SvgTag

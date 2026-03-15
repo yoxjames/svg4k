@@ -15,7 +15,22 @@
  *
  */
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
-}
-rootProject.name = "svg4k"
+package dev.jamesyox.svg4k.attr.attrs
+
+import dev.jamesyox.svg4k.attr.AttributeConsumer
+import dev.jamesyox.svg4k.attr.AttributeContainer
+import dev.jamesyox.svg4k.attr.svgString
+import dev.jamesyox.svg4k.meta.noGet
+
+/**
+ * The surfaceScale attribute represents the height of the surface for a light filter primitive.
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.SurfaceScale
+)
+public var surfaceScale: Number
+    get() = noGet()
+    set(value) {
+        ac["surfaceScale"] = value.svgString
+    }

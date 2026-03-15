@@ -1,0 +1,50 @@
+/*
+ * Copyright 2026 James Yox
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+package dev.jamesyox.svg4k.attr.types.obj
+
+import dev.jamesyox.svg4k.attr.ConstantSvgAttributeType
+import dev.jamesyox.svg4k.attr.SvgAttributeType
+
+public sealed interface AngleValue : SvgAttributeType {
+    public val value: Number
+
+    public class Deg(
+        public override val value: Number,
+    ) : ConstantSvgAttributeType("${value}deg"),
+        AngleValue
+
+    public class Grad(
+        public override val value: Number,
+    ) : ConstantSvgAttributeType("${value}grad"),
+        AngleValue
+
+    public class Rad(
+        public override val value: Number,
+    ) : ConstantSvgAttributeType("${value}rad"),
+        AngleValue
+
+    public class Turn(
+        public override val value: Number,
+    ) : ConstantSvgAttributeType("${value}turn"),
+        AngleValue
+}
+
+public val Number.deg: AngleValue get() = AngleValue.Deg(this)
+public val Number.grad: AngleValue get() = AngleValue.Grad(this)
+public val Number.rad: AngleValue get() = AngleValue.Rad(this)
+public val Number.turn: AngleValue get() = AngleValue.Turn(this)

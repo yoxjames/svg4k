@@ -139,49 +139,34 @@ kotlin {
     }
 }
 
-publishing {
-    publications.withType<MavenPublication> {
-        groupId = project.group.toString()
-        version = libs.versions.current.get()
-        val publication = this
-        val dokkaJar =
-            tasks.register<Jar>("${publication.name}DokkaJar") {
-                group = JavaBasePlugin.DOCUMENTATION_GROUP
-                description = "Assembles Kotlin docs with Dokka into a Javadoc jar"
-                archiveClassifier.set("javadoc")
-                from(tasks.named("dokkaGenerateHtml"))
-                // Each archive name should be distinct, to avoid implicit dependency issues.
-                // We use the same format as the sources Jar tasks.
-                // https://youtrack.jetbrains.com/issue/KT-46466
-                archiveBaseName.set("${archiveBaseName.get()}-${publication.name}")
+mavenPublishing {
+    publishToMavenCentral()
+    signAllPublications()
+    coordinates(groupId = project.group.toString(), artifactId = project.name)
+    pom {
+        name = project.name
+        description = "SVG Implementation in Kotlin as a DSL"
+        url = "https://github.com/jamesyox/svg4k"
+
+        licenses {
+            license {
+                name = "Apache License, Version 2.0"
+                url = "https://www.apache.org/licenses/LICENSE-2.0.txt"
             }
+        }
 
-        artifact(dokkaJar)
-
-        pom {
-            name = project.name
-            description = "SVG Implementation in Kotlin as a DSL"
-
-            licenses {
-                license {
-                    name = "Apache License, Version 2.0"
-                    url = "https://www.apache.org/licenses/LICENSE-2.0.txt"
-                }
+        developers {
+            developer {
+                name = "James Yox"
+                id = "yoxjames"
+                url = "https://www.jamesyox.dev"
             }
+        }
 
-            developers {
-                developer {
-                    name = "James Yox"
-                    id = "yoxjames"
-                    url = "https://www.jamesyox.dev"
-                }
-            }
-
-            scm {
-                connection = "scm:git:github.com/yoxjames/svg4k.git"
-                developerConnection = "scm:git:ssh://github.com/yoxjames/svg4k.git"
-                url = "https://github.com/yoxjames/svg4k"
-            }
+        scm {
+            connection = "scm:git:github.com/yoxjames/svg4k.git"
+            developerConnection = "scm:git:ssh://github.com/yoxjames/svg4k.git"
+            url = "https://github.com/yoxjames/svg4k"
         }
     }
 }

@@ -13,8 +13,19 @@ page but be aware that there may be bugs. See the section below on the `unsafe` 
 face. I encourage feedback and plan to continue developing this into a high quality open source library.
 
 ## Getting Started
+An alpha version of this library is published on Maven Central.
+Coordinates:
 
-<< Insert Gradle Instructions Here>>
+groupId: `dev.jamesyox`
+
+artifactId: `svg4k`
+
+version: `0.1.0-alpha.1`
+
+If you use Gradle you should be able to add the following to your dependencies to use svg4k:
+```kotlin
+implementation("dev.jamesyox:svg4k:0.1.0-alpha.1")
+```
 
 You are now free to use this in a toy project, however you _must_ enable context parameters. This library is based around
 that feature.
@@ -84,7 +95,7 @@ Would output
 
 I eventually plan to add more docs but a good overview of the syntax can be found in the tests I have written so far.
 
-<< Insert link to test directory >>
+https://github.com/yoxjames/svg4k/tree/main/src/commonTest/kotlin/dev/jamesyox/svg4k/tags
 
 Also like `kotlinx-html` this builder can be used on any `Appendable`. This is done with the `appendSVG { ... }` 
 extension fun.

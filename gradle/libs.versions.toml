@@ -8,6 +8,7 @@ kotlinx-browser = "0.5.0"
 kotlinx-html = "0.12.0"
 ktlint-plugin = "14.2.0"
 ktlint = "1.8.0"
+maven-publish = "0.36.0"
 
 [libraries]
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
@@ -21,3 +22,4 @@ detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 benmanes-versions = { id = "com.github.ben-manes.versions", version.ref = "benmanes-versions" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint-plugin" }
+mavenpublish = { id = "com.vanniktech.maven.publish", version.ref = "maven-publish" }

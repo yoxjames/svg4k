@@ -27,8 +27,7 @@ plugins {
     alias(libs.plugins.ktlint)
     alias(libs.plugins.benmanes.versions)
     alias(libs.plugins.dokka)
-    `maven-publish`
-    signing
+    alias(libs.plugins.mavenpublish)
 }
 
 group = "dev.jamesyox"

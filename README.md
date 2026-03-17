@@ -1,4 +1,8 @@
 # svg4k
+![Maven Central Version](https://img.shields.io/maven-central/v/dev.jamesyox/svg4k)
+[![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0)
+[![Kotlin](https://img.shields.io/badge/kotlin-2.3.10-blue.svg?logo=kotlin)](http://kotlinlang.org)
+
 This library is an implementation of the current [second edition of the SVG 1.1 spec](https://www.w3.org/TR/SVG11/) 
 as a Kotlin DSL (or type safe builder). This library strives for maximal type safety and the avoidance of string typing 
 as much as possible. This library makes use of the currently experimental multiple 
@@ -49,23 +53,29 @@ If you are familiar with the `kotlinx-html` then the syntax should feel pretty f
 ```kotlin
 val svgStr = svgString(isPrettyPrint = true) {
     svg {
-        width = 120.none
-        height = 120.none
-        viewBox = ViewBox(0, 0, 120, 120)
-        polygon {
-            points = listOf(
-                Point(60, 30),
-                Point(90, 90),
-                Point(30, 90)
-            )
-            animateTransform {
-                attributeName = "transform"
-                attributeType = AttributeType.XML
-                type = AnimateTransformType.Rotate
-                from = "0 60 70"
-                to = "360 60 70"
+        viewBox = ViewBox(0, 0, 200, 100)
+        path {
+            fill = "none"
+            stroke = "lightgrey"
+            d {
+                M(20, 50)
+                C(20, -50, 180, 150, 180, 50)
+                C(180, -50, 20, 150, 20, 50)
+                Z
+            }
+        }
+        circle {
+            r = 5.none
+            fill = "red"
+            animateMotion {
                 dur = Dur.ClockValue(10.seconds)
                 repeatCount = RepeatCount.Indefinite
+                path {
+                    M(20, 50)
+                    C(20, -50, 180, 150, 180, 50)
+                    C(180, -50, 20, 150, 20, 50)
+                    Z
+                }
             }
         }
     }
@@ -76,25 +86,25 @@ Would output
 ```
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 100 100">
-    <a
-        href="/docs/Web/SVG/Reference/Element/circle">
-        <circle
-            cx="50"
-            cy="40"
-            r="35" />
-    </a>
-    <a
-        href="/docs/Web/SVG/Reference/Element/text">
-        <text
-            x="50"
-            y="90"
-            text-anchor="middle">
-            &lt;circle&gt;
-        </text>
-    </a>
+    viewBox="0 0 200 100">
+    <path
+        fill="none"
+        stroke="lightgrey"
+        d="M 20 50 C 20 -50 180 150 180 50 C 180 -50 20 150 20 50 Z" />
+    <circle
+        r="5"
+        fill="red">
+        <animateMotion
+            dur="10s"
+            repeatCount="indefinite"
+            path="M 20 50 C 20 -50 180 150 180 50 C 180 -50 20 150 20 50 Z" />
+    </circle>
 </svg>
 ```
+
+Which if rendered by a browser would look like:
+
+![](./samples/AnimateMotionMozillaExample.svg)
 
 I eventually plan to add more docs but a good overview of the syntax can be found in the tests I have written so far.
 

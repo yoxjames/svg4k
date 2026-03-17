@@ -1,0 +1,16 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 200 100">
+    <path
+        fill="none"
+        stroke="lightgrey"
+        d="M 20 50 C 20 -50 180 150 180 50 C 180 -50 20 150 20 50 Z" />
+    <circle
+        r="5"
+        fill="red">
+        <animateMotion
+            dur="10s"
+            repeatCount="indefinite"
+            path="M 20 50 C 20 -50 180 150 180 50 C 180 -50 20 150 20 50 Z" />
+    </circle>
+</svg>

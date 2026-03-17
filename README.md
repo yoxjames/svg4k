@@ -103,8 +103,8 @@ Would output
 ```
 
 Which if rendered by a browser would look like:
-
-![](./samples/AnimateMotionMozillaExample.svg)
+![AnimationMotion Mozilla Example SVG](./samples/AnimateMotionMozillaExample.svg)
+*Source: https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/animateMotion*
 
 I eventually plan to add more docs but a good overview of the syntax can be found in the tests I have written so far.
 

@@ -23,6 +23,7 @@ import dev.jamesyox.svg4k.attr.ConstantSvgAttributeType
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `target` attribute should be used when there are multiple possible targets for the ending resource, such as
@@ -35,6 +36,7 @@ context(
     _: AttributeContainer.Target
 )
 public var target: Target
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["target"] = value

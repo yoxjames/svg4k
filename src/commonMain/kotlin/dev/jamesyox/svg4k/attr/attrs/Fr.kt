@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.attr.types.obj.LengthOrPercentage
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `fr` attribute defines the radius of the focal point for the radial gradient.
@@ -31,6 +32,7 @@ context(
     _: AttributeContainer.Fr
 )
 public var fr: LengthOrPercentage
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["fr"] = value

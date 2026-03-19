@@ -21,6 +21,7 @@ import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.svgString
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `preserveAlpha` attribute indicates how a [dev.jamesyox.svg4k.tags.FeConvolveMatrix] element handles
@@ -39,6 +40,7 @@ context(
     _: AttributeContainer.PreserveAlpha
 )
 public var preserveAlpha: Boolean
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["preserveAlpha"] = value.svgString

@@ -25,6 +25,7 @@ import dev.jamesyox.svg4k.tags.FeDropShadow
 import dev.jamesyox.svg4k.tags.FeOffset
 import dev.jamesyox.svg4k.tags.Text
 import dev.jamesyox.svg4k.tags.Tspan
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * For `<feDropShadow>`, dx defines the x offset of the dropped shadow. The unit used to resolve the value of the
@@ -35,6 +36,7 @@ context(
     _: FeDropShadow
 )
 public var dx: Number
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["dx"] = value.svgString
@@ -49,6 +51,7 @@ context(
     _: FeOffset
 )
 public var dx: Number
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["dx"] = value.svgString
@@ -66,6 +69,7 @@ context(
     _: Text
 )
 public var dx: LengthOrPercentage
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["dx"] = value.svgString
@@ -83,6 +87,7 @@ context(
     _: Tspan
 )
 public var dx: LengthOrPercentage
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["dx"] = value.svgString

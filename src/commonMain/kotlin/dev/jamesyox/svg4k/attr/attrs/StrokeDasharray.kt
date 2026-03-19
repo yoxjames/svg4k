@@ -21,6 +21,7 @@ import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.svgString
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `stroke-dasharray` attribute is a presentation attribute defining the pattern of dashes and gaps
@@ -31,6 +32,7 @@ context(
     _: AttributeContainer.StrokeDasharray
 )
 public var strokeDasharray: List<Number>
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["stroke-dasharray"] = value.svgString(" ")

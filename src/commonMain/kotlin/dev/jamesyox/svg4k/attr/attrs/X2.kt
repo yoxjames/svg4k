@@ -24,6 +24,7 @@ import dev.jamesyox.svg4k.attr.types.obj.LengthOrPercentage
 import dev.jamesyox.svg4k.meta.noGet
 import dev.jamesyox.svg4k.tags.Line
 import dev.jamesyox.svg4k.tags.LinearGradient
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * For [Line], [x2] defines the x coordinate of the ending point of the line.
@@ -33,6 +34,7 @@ context(
     _: Line
 )
 public var x2: LengthOrPercentage
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["x2"] = value
@@ -47,6 +49,7 @@ context(
     _: LinearGradient
 )
 public var x2: LengthOrPercentage
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["x2"] = value
@@ -60,6 +63,7 @@ context(
     _: AttributeContainer.X2
 )
 public var x2: LengthOrPercentage
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["x2"] = value

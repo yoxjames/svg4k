@@ -21,6 +21,7 @@ import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.svgString
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `divisor` attribute specifies the value by which the resulting number of applying the [kernelMatrix]
@@ -35,6 +36,7 @@ context(
     _: AttributeContainer.Divisor,
 )
 public var divisor: Number
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["divisor"] = value.svgString

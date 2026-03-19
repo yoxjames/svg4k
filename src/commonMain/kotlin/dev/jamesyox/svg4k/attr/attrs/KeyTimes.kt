@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.svgString
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `keySplines` attribute defines a set of Bézier curve control points associated with the keyTimes list,
@@ -37,6 +38,7 @@ context(
     _: AttributeContainer.KeySplines
 )
 public var keySplines: List<ControlPoint>
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["keySplines"] = value.svgString(";")

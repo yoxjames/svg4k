@@ -36,7 +36,6 @@ import dev.jamesyox.svg4k.attr.attrs.preserveAspectRatio
 import dev.jamesyox.svg4k.attr.attrs.r
 import dev.jamesyox.svg4k.attr.attrs.transform
 import dev.jamesyox.svg4k.attr.attrs.type
-import dev.jamesyox.svg4k.attr.attrs.url
 import dev.jamesyox.svg4k.attr.attrs.values
 import dev.jamesyox.svg4k.attr.attrs.viewBox
 import dev.jamesyox.svg4k.attr.attrs.width
@@ -44,6 +43,7 @@ import dev.jamesyox.svg4k.attr.attrs.x
 import dev.jamesyox.svg4k.attr.attrs.y
 import dev.jamesyox.svg4k.attr.types.obj.none
 import dev.jamesyox.svg4k.attr.types.obj.pct
+import dev.jamesyox.svg4k.attr.types.obj.url
 import dev.jamesyox.svg4k.consumers.svgString
 import dev.jamesyox.svg4k.meta.attr
 import dev.jamesyox.svg4k.meta.unsafe

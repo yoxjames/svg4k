@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 // TODO: I am not 100% sure which elements this can be applied to. Made an educated guess.
 
@@ -33,6 +34,7 @@ context(
     _: AttributeContainer.TextRendering
 )
 public var textRendering: TextRendering
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["text-rendering"] = value

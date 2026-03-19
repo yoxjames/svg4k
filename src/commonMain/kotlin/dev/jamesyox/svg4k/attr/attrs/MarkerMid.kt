@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.attr.types.obj.Url
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `marker-mid` attribute defines the arrowhead or polymarker that will be drawn at all interior vertices of
@@ -34,6 +35,7 @@ context(
     _: AttributeContainer.MarkerMid
 )
 public var markerMid: Url
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["marker-mid"] = value

@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `shape-rendering` attribute provides hints to the renderer about what tradeoffs to make when rendering
@@ -32,6 +33,7 @@ context(
     _: AttributeContainer.ShapeRendering
 )
 public var shapeRendering: ShapeRendering
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["shape-rendering"] = value

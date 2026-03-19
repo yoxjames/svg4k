@@ -21,11 +21,12 @@ import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.svgString
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `pointsAtZ` attribute represents the z location in the coordinate system established by
- * attribute [primitiveUnits] on the [Filter] element of the point at which the light source is pointing,
- * assuming that, in the initial local coordinate system, the positive z-axis comes out towards
+ * attribute [primitiveUnits] on the [dev.jamesyox.svg4k.tags.Filter] element of the point at which the light source
+ * is pointing, assuming that, in the initial local coordinate system, the positive z-axis comes out towards
  * the person viewing the content and assuming that one unit along the z-axis equals one unit in x and y.
  */
 context(
@@ -33,6 +34,7 @@ context(
     _: AttributeContainer.PointsAtZ
 )
 public var pointsAtZ: Number
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["pointsAtZ"] = value.svgString

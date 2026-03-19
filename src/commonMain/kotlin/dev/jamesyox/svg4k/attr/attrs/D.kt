@@ -23,6 +23,7 @@ import dev.jamesyox.svg4k.attr.svgString
 import dev.jamesyox.svg4k.attr.types.obj.PathCommand
 import dev.jamesyox.svg4k.meta.noGet
 import dev.jamesyox.svg4k.util.PathBuilder
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 import dev.jamesyox.svg4k.util.pathBuilder
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
@@ -32,6 +33,7 @@ context(
     _: AttributeContainer.D
 )
 internal var d: List<PathCommand>
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["d"] = value.svgString(" ")

@@ -21,6 +21,7 @@ import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.svgString
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The font-size-adjust attribute allows authors to specify an aspect value for an element that will preserve the
@@ -31,6 +32,7 @@ context(
     _: AttributeContainer.FontSizeAdjust
 )
 public var fontSizeAdjust: Number
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["font-size-adjust"] = value.svgString

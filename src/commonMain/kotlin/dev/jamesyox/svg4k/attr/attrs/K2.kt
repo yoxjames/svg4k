@@ -21,6 +21,7 @@ import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.svgString
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `k2` attribute defines one of the values to be used within the arithmetic operation of the `<feComposite>`
@@ -36,6 +37,7 @@ context(
     _: AttributeContainer.K2
 )
 public var k2: Number
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["k2"] = value.svgString

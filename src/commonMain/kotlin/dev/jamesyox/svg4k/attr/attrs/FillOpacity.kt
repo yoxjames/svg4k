@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.types.obj.Pct
 import dev.jamesyox.svg4k.attr.types.obj.PercentageOrNumber
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The fill-opacity attribute is a presentation attribute defining the opacity of the paint server
@@ -32,6 +33,7 @@ context(
     _: AttributeContainer.FillOpacity,
 )
 public var fillOpacity: PercentageOrNumber
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["fill-opacity"] = value.svgString

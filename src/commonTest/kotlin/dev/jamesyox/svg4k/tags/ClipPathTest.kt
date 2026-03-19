@@ -26,8 +26,8 @@ import dev.jamesyox.svg4k.attr.attrs.fill
 import dev.jamesyox.svg4k.attr.attrs.href
 import dev.jamesyox.svg4k.attr.attrs.id
 import dev.jamesyox.svg4k.attr.attrs.r
-import dev.jamesyox.svg4k.attr.attrs.url
 import dev.jamesyox.svg4k.attr.attrs.viewBox
+import dev.jamesyox.svg4k.attr.types.obj.Url
 import dev.jamesyox.svg4k.attr.types.obj.none
 import dev.jamesyox.svg4k.consumers.svgString
 import dev.jamesyox.svg4k.util.A
@@ -84,7 +84,7 @@ class ClipPathTest {
                     }
                 }
                 use {
-                    clipPath = url("#$clipId")
+                    clipPath(Url("#$clipId"))
                     href = "#heart"
                     // TODO: An unfortunate compromise
                     fill = "red"

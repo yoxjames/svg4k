@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The font-style attribute specifies whether the text is to be rendered using a normal, italic, or oblique face.
@@ -31,6 +32,7 @@ context(
     _: AttributeContainer.FontStyle
 )
 public var fontStyle: FontStyle
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["font-style"] = value

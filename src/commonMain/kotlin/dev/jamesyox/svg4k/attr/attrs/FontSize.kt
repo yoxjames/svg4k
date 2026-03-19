@@ -24,6 +24,7 @@ import dev.jamesyox.svg4k.attr.WrappedSvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.attr.types.obj.LengthOrPercentage
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The font-size attribute refers to the size of the font from baseline to baseline when multiple lines of text are
@@ -34,6 +35,7 @@ context(
     _: AttributeContainer.FontSize
 )
 public var fontSize: FontSize
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["font-size"] = value

@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.attr.types.obj.LengthOrPercentage
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `stroke-width` attribute is a presentation attribute defining the width of the stroke to be applied to
@@ -34,6 +35,7 @@ context(
     _: AttributeContainer.StrokeWidth
 )
 public var strokeWidth: LengthOrPercentage
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["stroke-width"] = value

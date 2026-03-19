@@ -24,6 +24,7 @@ import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.WrappedNumberSvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `rotate` attribute specifies how the animated element rotates as it travels along a path specified
@@ -34,6 +35,7 @@ context(
     _: AttributeContainer.Rotate
 )
 public var rotate: Rotate
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["rotate"] = value

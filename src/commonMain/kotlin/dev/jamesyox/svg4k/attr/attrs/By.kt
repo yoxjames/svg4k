@@ -20,6 +20,7 @@ package dev.jamesyox.svg4k.attr.attrs
 import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `by` attribute specifies a relative offset value for an attribute that will be modified during an animation.
@@ -32,6 +33,7 @@ context(
     _: AttributeContainer.By,
 )
 public var by: String // TODO: Weakly typed
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["by"] = value

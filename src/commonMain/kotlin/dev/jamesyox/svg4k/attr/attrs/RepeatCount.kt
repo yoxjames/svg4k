@@ -24,6 +24,7 @@ import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.WrappedNumberSvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `repeatCount` attribute indicates the number of times an animation will take place.
@@ -33,6 +34,7 @@ context(
     _: AttributeContainer.RepeatCount
 )
 public var repeatCount: RepeatCount
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["repeatCount"] = value

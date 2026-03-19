@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.attr.types.obj.LengthOrPercentage
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /*
  * TODO: Technically you could set a RadialGradient to use a percentage here which should not be allowed.
@@ -36,6 +37,7 @@ context(
     _: AttributeContainer.Cx,
 )
 public var cx: LengthOrPercentage
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["cx"] = value

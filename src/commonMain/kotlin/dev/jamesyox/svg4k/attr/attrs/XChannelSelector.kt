@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `xChannelSelector` attribute indicates which color channel from [in2] to use to
@@ -32,6 +33,7 @@ context(
     _: AttributeContainer.XChannelSelector
 )
 public var xChannelSelector: XChannelSelector
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["xChannelSelector"] = value

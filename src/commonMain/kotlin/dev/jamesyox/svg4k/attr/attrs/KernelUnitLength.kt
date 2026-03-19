@@ -23,6 +23,7 @@ import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.attr.types.obj.NumberOptionalNumber
 import dev.jamesyox.svg4k.meta.noGet
 import dev.jamesyox.svg4k.tags.FeConvolveMatrix
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * Indicates the intended distance in current filter units (i.e., units as determined by the value of attribute
@@ -41,6 +42,7 @@ context(
     _: AttributeContainer.KernelUnitLength
 )
 public var kernelUnitLength: NumberOptionalNumber
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["kernelUnitLength"] = value
@@ -60,6 +62,7 @@ context(
     _: FeConvolveMatrix
 )
 public var kernelUnitLength: NumberOptionalNumber
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["kernelUnitLength"] = value

@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.meta.noGet
 import dev.jamesyox.svg4k.tags.FeComposite
 import dev.jamesyox.svg4k.tags.FeMorphology
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * Defines the compositing operation to be performed
@@ -31,6 +32,7 @@ context(
     _: FeComposite
 )
 public var operator: CompositeOperator
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["operator"] = value.svgString

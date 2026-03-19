@@ -21,6 +21,7 @@ import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.svgString
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The autofocus global SVG attribute defines a focusable element to be focused after it's connected to a document.
@@ -34,6 +35,7 @@ context(
     _: AttributeContainer.Autofocus,
 )
 public var autofocus: Boolean
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["autofocus"] = value.svgString

@@ -21,6 +21,7 @@ import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `zoomAndPan` attribute specifies whether the SVG document can be magnified and panned.
@@ -37,6 +38,7 @@ context(
     _: AttributeContainer.ZoomAndPan
 )
 public var zoomAndPan: ZoomAndPan
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["zoomAndPan"] = value.svgString

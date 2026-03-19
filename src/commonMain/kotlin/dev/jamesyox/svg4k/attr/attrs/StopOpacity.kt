@@ -21,6 +21,7 @@ import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.svgString
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `stop-opacity` attribute defines the opacity of a given color gradient stop.
@@ -34,6 +35,7 @@ context(
     _: AttributeContainer.StopOpacity
 )
 public var stopOpacity: Float
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["stop-opacity"] = value.svgString

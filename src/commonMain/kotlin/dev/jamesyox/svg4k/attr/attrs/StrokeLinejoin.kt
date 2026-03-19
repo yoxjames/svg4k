@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `stroke-linejoin` attribute is a presentation attribute defining the shape to be used at the corners of
@@ -32,6 +33,7 @@ context(
     _: AttributeContainer.StrokeLinejoin
 )
 public var strokeLinejoin: StrokeLinejoin
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["stroke-linejoin"] = value

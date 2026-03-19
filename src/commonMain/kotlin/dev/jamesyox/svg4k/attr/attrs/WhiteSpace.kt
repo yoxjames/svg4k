@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 // TODO: Not 100% sure what elements this applies to. Educated guess taken.
 
@@ -34,6 +35,7 @@ context(
     _: AttributeContainer.WhiteSpace
 )
 public var whiteSpace: WhiteSpace
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["white-space"] = value

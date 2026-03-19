@@ -184,9 +184,8 @@ fun <T> TagConsumer<HTMLElement>.svgMagick(
   return output
 }
 ```
-This is not super ideal, and I am planning to open a PR for `kotlinx-html` to open up better interop pathways, but I 
-don't know if that'll get merged or when. I'll update here once I have the PR open. For now above is my best suggestion
-even if it's not super ideal.
+I'm hoping to open a PR with `kotlinx-html` soon that should make seamless interop possible. 
+I'll update this README once that's opened!
 
 ## Unsafe DSL
 This library may have bugs. A lot of those bugs may be around typing and scoping. Lets say for some reason `cx` was

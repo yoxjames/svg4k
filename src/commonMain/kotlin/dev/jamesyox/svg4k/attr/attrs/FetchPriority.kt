@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The fetchpriority attribute provides a hint to the browser about the relative priority to use when fetching an
@@ -33,6 +34,7 @@ context(
     _: AttributeContainer.Fetchpriority
 )
 public var fetchpriority: FetchPriority
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["fetchpriority"] = value

@@ -23,6 +23,7 @@ import dev.jamesyox.svg4k.attr.ConstantSvgAttributeType
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.WrappedSvgAttributeType
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 import dev.jamesyox.svg4k.attr.types.obj.BasicShape as BasicShapeType
 import dev.jamesyox.svg4k.attr.types.obj.Url as UrlType
 
@@ -34,16 +35,26 @@ context(
     _: AttributeContainer.ClipPath,
 )
 public var clipPath: ClipPath
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["clip-path"] = value.svgString
     }
 
+/**
+ * The `clip-path` presentation attribute defines or associates a clipping path with the element it is related to.
+ *
+ * This is a convenience method equivalent to:
+ * ```
+ * clipPath = ClipPath.Url(value)
+ * ```
+ */
 context(
+    ac: AttributeConsumer,
     _: AttributeContainer.ClipPath,
 )
-public fun url(value: String): ClipPath.Url {
-    return ClipPath.Url(UrlType(value))
+public fun clipPath(value: UrlType) {
+    clipPath = ClipPath.Url(value)
 }
 
 public sealed interface ClipPath : SvgAttributeType {
@@ -52,8 +63,7 @@ public sealed interface ClipPath : SvgAttributeType {
     ) : WrappedSvgAttributeType(value),
         ClipPath
 
-
-    // TODO: Incomplete Type
+    // TODO: Incomplete
     public class BasicShape(
         public val value: BasicShapeType,
     ) : WrappedSvgAttributeType(value)

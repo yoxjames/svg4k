@@ -21,6 +21,7 @@ import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * Specifies the color space for imaging operations performed via filter effects.
@@ -30,6 +31,7 @@ context(
     _: AttributeContainer.ColorInterpolationFilters,
 )
 public var colorInterpolationFilters: ColorInterpolationFilters
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["color-interpolation-filters"] = value.svgString

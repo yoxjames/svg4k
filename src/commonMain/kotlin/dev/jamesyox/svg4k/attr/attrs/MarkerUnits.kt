@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `markerUnits` attribute defines the coordinate system for the [markerWidth] and [markerHeight] attributes and
@@ -32,6 +33,7 @@ context(
     _: AttributeContainer.MarkerUnits
 )
 public var markerUnits: MarkerUnits
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["markerUnits"] = value

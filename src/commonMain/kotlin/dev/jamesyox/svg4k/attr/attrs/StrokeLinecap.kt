@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `stroke-linecap` attribute is a presentation attribute defining the shape to be used at the end of
@@ -32,6 +33,7 @@ context(
     _: AttributeContainer.StrokeLinecap
 )
 public var strokeLinecap: StrokeLinecap
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["stroke-linecap"] = value

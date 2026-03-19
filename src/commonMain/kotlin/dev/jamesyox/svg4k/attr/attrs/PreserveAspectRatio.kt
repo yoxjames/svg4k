@@ -21,6 +21,7 @@ import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `preserveAspectRatio` attribute indicates how an element with a viewBox providing a given aspect
@@ -36,6 +37,7 @@ context(
     _: AttributeContainer.PreserveAspectRatio
 )
 public var preserveAspectRatio: PreserveAspectRatio
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["preserveAspectRatio"] = value.svgString

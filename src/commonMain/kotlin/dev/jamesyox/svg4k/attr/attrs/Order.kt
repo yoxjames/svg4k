@@ -21,6 +21,7 @@ import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.types.obj.NumberOptionalNumber
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The order attribute indicates the size of the matrix to be used by a [dev.jamesyox.svg4k.tags.FeConvolveMatrix]
@@ -39,6 +40,7 @@ context(
     _: AttributeContainer.Order
 )
 public var order: NumberOptionalNumber
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["order"] = value.svgString

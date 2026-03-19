@@ -24,6 +24,7 @@ import dev.jamesyox.svg4k.attr.types.obj.LengthOrPercentage
 import dev.jamesyox.svg4k.meta.noGet
 import dev.jamesyox.svg4k.tags.Circle
 import dev.jamesyox.svg4k.tags.RadialGradient
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * For [Circle], `r` defines the radius of the circle and therefore its size. With a value lower or equal to
@@ -34,6 +35,7 @@ context(
     _: Circle
 )
 public var r: LengthOrPercentage
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["r"] = value
@@ -51,6 +53,7 @@ context(
     _: RadialGradient
 )
 public var r: Length
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["r"] = value

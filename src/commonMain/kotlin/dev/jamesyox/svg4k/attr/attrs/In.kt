@@ -23,6 +23,7 @@ import dev.jamesyox.svg4k.attr.ConstantSvgAttributeType
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The filter attribute specifies the filter effects defined by the <filter> element that shall be applied to its
@@ -33,6 +34,7 @@ context(
     _: AttributeContainer.In
 )
 public var `in`: In
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["in"] = value

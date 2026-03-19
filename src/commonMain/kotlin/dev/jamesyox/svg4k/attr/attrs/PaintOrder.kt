@@ -23,6 +23,7 @@ import dev.jamesyox.svg4k.attr.ConstantSvgAttributeType
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.WrappedListSvgAttributeType
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `paint-order` attribute specifies the order that the fill, stroke, and markers of a given shape or text element
@@ -33,6 +34,7 @@ context(
     _: AttributeContainer.PaintOrder
 )
 public var paintOrder: PaintOrder
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["paint-order"] = value.svgString

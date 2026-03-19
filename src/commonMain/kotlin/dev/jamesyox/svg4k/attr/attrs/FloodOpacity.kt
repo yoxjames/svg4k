@@ -21,6 +21,7 @@ import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.svgString
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The filter attribute specifies the filter effects defined by the <filter> element that shall be applied to its
@@ -31,6 +32,7 @@ context(
     _: AttributeContainer.FloodOpacity
 )
 public var floodOpacity: Number
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["flood-opacity"] = value.svgString

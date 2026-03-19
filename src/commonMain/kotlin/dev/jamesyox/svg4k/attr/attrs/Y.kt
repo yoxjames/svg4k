@@ -34,6 +34,7 @@ import dev.jamesyox.svg4k.tags.Pattern
 import dev.jamesyox.svg4k.tags.Rect
 import dev.jamesyox.svg4k.tags.Svg
 import dev.jamesyox.svg4k.tags.Text
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * `y` defines the minimum y coordinate for the rendering area of the primitive.
@@ -43,6 +44,7 @@ context(
     _: AttributeContainer.Y
 )
 public var y: LengthOrPercentage
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["y"] = value
@@ -57,6 +59,7 @@ context(
     _: FePointLight
 )
 public var y: Number
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["y"] = value.svgString
@@ -71,6 +74,7 @@ context(
     _: FeSpotLight
 )
 public var y: Number
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["y"] = value.svgString
@@ -84,6 +88,7 @@ context(
     _: Filter
 )
 public var y: LengthOrPercentage
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["y"] = value
@@ -97,6 +102,7 @@ context(
     _: ForeignObject
 )
 public var y: LengthOrPercentage
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["y"] = value
@@ -110,6 +116,7 @@ context(
     _: Image
 )
 public var y: LengthOrPercentage
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["y"] = value
@@ -124,6 +131,7 @@ context(
     _: Mask
 )
 public var y: LengthOrPercentage
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["y"] = value
@@ -138,6 +146,7 @@ context(
     _: Pattern
 )
 public var y: Length
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["y"] = value
@@ -151,6 +160,7 @@ context(
     _: Rect
 )
 public var y: LengthOrPercentage
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["y"] = value
@@ -164,6 +174,7 @@ context(
     _: Svg
 )
 public var y: LengthOrPercentage
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["y"] = value
@@ -183,6 +194,7 @@ context(
     _: Text
 )
 public var y: List<LengthOrPercentage>
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["y"] = value.svgString(",")

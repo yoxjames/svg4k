@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `writing-mode` attribute specifies whether the initial inline-progression-direction for a
@@ -36,6 +37,7 @@ context(
     _: AttributeContainer.WritingMode
 )
 public var whiteSpace: WhiteSpace
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["writing-mode"] = value

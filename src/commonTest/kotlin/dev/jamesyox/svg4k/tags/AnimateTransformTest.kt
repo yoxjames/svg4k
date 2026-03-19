@@ -79,7 +79,7 @@ class AnimateTransformTest {
                         type = AnimateTransformType.Rotate
                         from = "0 60 70"
                         to = "360 60 70"
-                        dur = Dur.ClockValue(10.seconds)
+                        dur(10.seconds)
                         repeatCount = RepeatCount.Indefinite
                     }
                 }

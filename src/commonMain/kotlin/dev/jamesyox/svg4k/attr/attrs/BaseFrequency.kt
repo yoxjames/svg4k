@@ -21,6 +21,7 @@ import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.types.obj.NumberOptionalNumber
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `baseFrequency` attribute represents the base frequency parameter for the noise function of the [dev.jamesyox.svg4k.tags.FeTurbulence]
@@ -31,6 +32,7 @@ context(
     _: AttributeContainer.BaseFrequency
 )
 public var baseFrequency: NumberOptionalNumber
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["baseFrequency"] = value.svgString

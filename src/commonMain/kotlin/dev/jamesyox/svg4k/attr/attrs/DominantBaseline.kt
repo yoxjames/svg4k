@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The dominant-baseline attribute specifies the dominant baseline, which is the baseline used to align the box's text
@@ -46,6 +47,7 @@ context(
     _: AttributeContainer.DominantBaseline
 )
 public var dominantBaseline: DominantBaseline
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["dominant-baseline"] = value

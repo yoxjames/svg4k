@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `viewBox` attribute defines the position and dimension, in user space, of an SVG viewport.
@@ -31,6 +32,7 @@ context(
     _: AttributeContainer.ViewBox
 )
 public var viewBox: ViewBox
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["viewBox"] = value

@@ -20,6 +20,7 @@ package dev.jamesyox.svg4k.attr.attrs
 import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 // TODO: Poor typing. Complex type
 
@@ -31,6 +32,7 @@ context(
     _: AttributeContainer.FontVariant
 )
 public var fontVariant: String
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["font-variant"] = value

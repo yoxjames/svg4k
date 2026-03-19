@@ -15,25 +15,6 @@
  *
  */
 
-package dev.jamesyox.svg4k.attr.attrs
+package dev.jamesyox.svg4k.util
 
-import dev.jamesyox.svg4k.attr.AttributeConsumer
-import dev.jamesyox.svg4k.attr.AttributeContainer
-import dev.jamesyox.svg4k.meta.noGet
-import dev.jamesyox.svg4k.util.SetOnlyPropertyError
-
-// TODO: Loose typing
-
-/**
- * The `media` attribute specifies a media query that must be matched for a style sheet to apply.
- */
-context(
-    ac: AttributeConsumer,
-    _: AttributeContainer.Media
-)
-public var media: String
-    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
-    get() = noGet()
-    set(value) {
-        ac["media"] = value
-    }
+internal const val SetOnlyPropertyError = "This is a set only property"

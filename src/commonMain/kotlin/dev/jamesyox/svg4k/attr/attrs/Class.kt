@@ -20,6 +20,7 @@ package dev.jamesyox.svg4k.attr.attrs
 import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * Assigns a `class` name or set of class names to an element. You may assign the same class name or names to any number
@@ -35,6 +36,7 @@ context(
     _: AttributeContainer.Class,
 )
 public var `class`: String
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["class"] = value

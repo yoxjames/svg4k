@@ -21,6 +21,7 @@ import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.svgString
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `specularConstant` attribute controls the ratio of reflection of the specular lighting. It represents
@@ -32,6 +33,7 @@ context(
     _: AttributeContainer.SpecularConstant
 )
 public var specularConstant: Number
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["specularConstant"] = value.svgString

@@ -25,6 +25,7 @@ import dev.jamesyox.svg4k.tags.FeDropShadow
 import dev.jamesyox.svg4k.tags.FeOffset
 import dev.jamesyox.svg4k.tags.Text
 import dev.jamesyox.svg4k.tags.Tspan
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  *
@@ -37,6 +38,7 @@ context(
     _: FeDropShadow
 )
 public var dy: Number
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["dy"] = value.svgString
@@ -51,6 +53,7 @@ context(
     _: FeOffset
 )
 public var dy: Number
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["dy"] = value.svgString
@@ -68,6 +71,7 @@ context(
     _: Text
 )
 public var dy: LengthOrPercentage
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["dy"] = value.svgString
@@ -85,6 +89,7 @@ context(
     _: Tspan
 )
 public var dy: LengthOrPercentage
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["dy"] = value.svgString

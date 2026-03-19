@@ -21,6 +21,7 @@ import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.svgString
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The kernelMatrix attribute defines the list of numbers that make up the kernel matrix for the
@@ -34,6 +35,7 @@ context(
     _: AttributeContainer.KernelMatrix
 )
 public var kernelMatrix: List<Number>
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["kernelMatrix"] = value.svgString(separator = " ")

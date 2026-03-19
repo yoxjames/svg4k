@@ -20,6 +20,7 @@ package dev.jamesyox.svg4k.attr.attrs
 import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 // TODO: Paint Type
 
@@ -32,6 +33,7 @@ context(
     _: AttributeContainer.Stroke
 )
 public var stroke: String
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["stroke"] = value

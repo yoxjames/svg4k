@@ -24,20 +24,33 @@ import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.WrappedDurationSvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 import kotlin.time.Duration
 
 /**
- * The dur attribute indicates the simple duration of an animation.
+ * The `dur` attribute indicates the simple duration of an animation.
  */
 context(
     ac: AttributeConsumer,
     _: AttributeContainer.Dur
 )
 public var dur: Dur
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["dur"] = value
     }
+
+/**
+ * The `dur` attribute indicates the simple duration of an animation.
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.Dur
+)
+public fun dur(value: Duration) {
+    dur = Dur.ClockValue(value)
+}
 
 public sealed interface Dur : SvgAttributeType {
     /**

@@ -20,6 +20,7 @@ package dev.jamesyox.svg4k.attr.attrs
 import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `filter` attribute specifies the filter effects defined by the [dev.jamesyox.svg4k.tags.Filter] element that
@@ -30,6 +31,7 @@ context(
     _: AttributeContainer.Filter
 )
 public var filter: String
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["filter"] = value

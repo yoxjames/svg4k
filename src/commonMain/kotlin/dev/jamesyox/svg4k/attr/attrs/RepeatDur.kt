@@ -24,6 +24,7 @@ import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.WrappedDurationSvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 import kotlin.time.Duration
 
 /**
@@ -34,10 +35,22 @@ context(
     _: AttributeContainer.RepeatDur
 )
 public var repeatDur: RepeatDur
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["repeatDur"] = value
     }
+
+/**
+ * The `repeatDur` attribute specifies the total duration for repeating an animation.
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.RepeatDur
+)
+public fun repeatDur(value: Duration) {
+    repeatDur = RepeatDur.Value(value)
+}
 
 public sealed interface RepeatDur : SvgAttributeType {
     /**

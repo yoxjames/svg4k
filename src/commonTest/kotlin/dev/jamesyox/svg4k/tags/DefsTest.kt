@@ -27,12 +27,12 @@ import dev.jamesyox.svg4k.attr.attrs.id
 import dev.jamesyox.svg4k.attr.attrs.offset
 import dev.jamesyox.svg4k.attr.attrs.r
 import dev.jamesyox.svg4k.attr.attrs.stopColor
-import dev.jamesyox.svg4k.attr.attrs.url
 import dev.jamesyox.svg4k.attr.attrs.viewBox
 import dev.jamesyox.svg4k.attr.attrs.x
 import dev.jamesyox.svg4k.attr.attrs.y
 import dev.jamesyox.svg4k.attr.types.obj.none
 import dev.jamesyox.svg4k.attr.types.obj.pct
+import dev.jamesyox.svg4k.attr.types.obj.url
 import dev.jamesyox.svg4k.consumers.svgString
 import dev.jamesyox.svg4k.util.rotate
 import kotlin.test.Test

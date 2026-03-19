@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `stitchTiles` attribute defines how the Perlin Noise tiles behave at the border.
@@ -31,6 +32,7 @@ context(
     _: AttributeContainer.StitchTiles
 )
 public var stitchTiles: StitchTiles
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["stitchTiles"] = value

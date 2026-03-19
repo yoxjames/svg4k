@@ -21,6 +21,7 @@ import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.svgString
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 // TODO: Weakly typed. Not sure if we really need to focus on this though.
 
@@ -32,6 +33,7 @@ context(
     _: AttributeContainer.RequiredExtensions
 )
 public var requiredExtensions: List<String>
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["requiredExtensions"] = value.svgString(",")

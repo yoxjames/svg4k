@@ -21,6 +21,7 @@ import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `alignment-baseline` attribute specifies how an object is aligned with respect to its parent.
@@ -35,6 +36,7 @@ context(
     _: AttributeContainer.AlignmentBaseline,
 )
 public var alignmentBaseline: AlignmentBaseline
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["alignment-baseline"] = value.svgString

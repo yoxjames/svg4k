@@ -21,6 +21,7 @@ import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.svgString
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The stroke-opacity attribute is a presentation attribute defining the opacity of the paint server
@@ -33,6 +34,7 @@ context(
     _: AttributeContainer.StrokeOpacity
 )
 public var strokeOpacity: Float
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["stroke-opacity"] = value.svgString

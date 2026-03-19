@@ -24,6 +24,7 @@ import dev.jamesyox.svg4k.meta.noGet
 import dev.jamesyox.svg4k.tags.FeBlend
 import dev.jamesyox.svg4k.tags.FeComposite
 import dev.jamesyox.svg4k.tags.FeDisplacementMap
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * For `<feBlend>`, `in2` defines the second input image to the blending operation.
@@ -33,6 +34,7 @@ context(
     _: FeBlend
 )
 public var in2: In
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["in2"] = value
@@ -46,6 +48,7 @@ context(
     _: FeComposite
 )
 public var in2: In
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["in2"] = value
@@ -60,6 +63,7 @@ context(
     _: FeDisplacementMap
 )
 public var in2: In
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["in2"] = value
@@ -72,6 +76,7 @@ context(
     _: AttributeContainer.In2
 )
 public var in2: In
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["in2"] = value

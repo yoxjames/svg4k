@@ -24,6 +24,7 @@ import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.WrappedNumberSvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The font-weight attribute refers to the boldness or lightness of the glyphs used to render the text,
@@ -34,6 +35,7 @@ context(
     _: AttributeContainer.FontWeight
 )
 public var fontWeight: FontWeight
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["font-weight"] = value

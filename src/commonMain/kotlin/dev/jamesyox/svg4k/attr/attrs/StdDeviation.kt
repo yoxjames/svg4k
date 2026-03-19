@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.attr.types.obj.NumberOptionalNumber
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `stdDeviation` attribute defines the standard deviation for the blur operation.
@@ -39,6 +40,7 @@ context(
     _: AttributeContainer.StdDeviation
 )
 public var stdDeviation: NumberOptionalNumber
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["stdDeviation"] = value

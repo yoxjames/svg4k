@@ -21,16 +21,19 @@ import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.svgString
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The pointsAtX attribute represents the x location in the coordinate system established by
- * attribute [primitiveUnits] on the [Filter] element of the point at which the light source is pointing.
+ * attribute [primitiveUnits] on the [dev.jamesyox.svg4k.tags.Filter] element of the point at which the light source
+ * is pointing.
  */
 context(
     ac: AttributeConsumer,
     _: AttributeContainer.PointsAtX
 )
 public var pointsAtX: Number
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["pointsAtX"] = value.svgString

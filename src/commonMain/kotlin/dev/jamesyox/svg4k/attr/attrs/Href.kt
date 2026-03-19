@@ -28,6 +28,7 @@ import dev.jamesyox.svg4k.tags.Pattern
 import dev.jamesyox.svg4k.tags.RadialGradient
 import dev.jamesyox.svg4k.tags.Script
 import dev.jamesyox.svg4k.tags.TextPath
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * For `<a>`, href defines the location of the referenced object, expressed as a URL reference.
@@ -69,6 +70,7 @@ context(
     _: AttributeContainer.Href
 )
 public var href: String
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["href"] = value
@@ -83,6 +85,7 @@ context(
     _: FeImage
 )
 public var href: String
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["href"] = value
@@ -96,6 +99,7 @@ context(
     _: Image
 )
 public var href: String
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["href"] = value
@@ -110,6 +114,7 @@ context(
     _: LinearGradient
 )
 public var href: String
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["href"] = value
@@ -124,6 +129,7 @@ context(
     _: RadialGradient
 )
 public var href: String
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["href"] = value
@@ -143,6 +149,7 @@ context(
     _: Pattern
 )
 public var href: String
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["href"] = value
@@ -156,6 +163,7 @@ context(
     _: Script
 )
 public var href: String
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["href"] = value
@@ -170,6 +178,7 @@ context(
     _: TextPath
 )
 public var href: String
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["href"] = value

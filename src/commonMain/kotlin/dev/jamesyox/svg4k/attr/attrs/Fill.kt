@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 // TODO: Poor typing
 
@@ -33,6 +34,7 @@ context(
     _: AttributeContainer.Fill.Presentational,
 )
 public var fill: String
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["fill"] = value
@@ -46,6 +48,7 @@ context(
     _: AttributeContainer.Fill.Unsafe
 )
 public var fill: String
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["fill"] = value
@@ -59,6 +62,7 @@ context(
     _: AttributeContainer.Fill.Animation,
 )
 public var fill: FinalState
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["fill"] = value

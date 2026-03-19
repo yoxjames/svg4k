@@ -21,6 +21,7 @@ import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.svgString
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `azimuth` attribute specifies the direction angle for the light source on the XY plane (clockwise), in degrees from
@@ -31,6 +32,7 @@ context(
     _: AttributeContainer.Azimuth
 )
 public var azimuth: Number
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["azimuth"] = value.svgString

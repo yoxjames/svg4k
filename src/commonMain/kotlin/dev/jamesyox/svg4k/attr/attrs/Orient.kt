@@ -24,6 +24,7 @@ import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.WrappedSvgAttributeType
 import dev.jamesyox.svg4k.attr.types.obj.AngleValue
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `orient` attribute indicates how a marker is rotated when it is placed at its position on the shape.
@@ -33,6 +34,7 @@ context(
     _: AttributeContainer.Orient
 )
 public var orient: Orient
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["orient"] = value.svgString

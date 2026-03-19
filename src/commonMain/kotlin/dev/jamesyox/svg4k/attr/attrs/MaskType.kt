@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `mask-type` attribute indicates which mask mode, alpha or luminance, to use for the contents of the
@@ -32,6 +33,7 @@ context(
     _: AttributeContainer.MaskType
 )
 public var maskType: MaskType
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["mask-type"] = value

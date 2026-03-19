@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.attr.types.obj.Url
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `mask` attribute is a presentation attribute mainly used to bind a given [dev.jamesyox.svg4k.tags.Mask]
@@ -32,6 +33,7 @@ context(
     _: AttributeContainer.Mask
 )
 public var mask: Url
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["mask"] = value

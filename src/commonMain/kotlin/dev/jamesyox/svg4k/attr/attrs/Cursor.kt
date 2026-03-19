@@ -25,6 +25,7 @@ import dev.jamesyox.svg4k.attr.WrappedListSvgAttributeType
 import dev.jamesyox.svg4k.attr.WrappedSvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 import dev.jamesyox.svg4k.attr.types.obj.Url as UrlType
 
 /**
@@ -35,6 +36,7 @@ context(
     _: AttributeContainer.Cursor
 )
 public var cursor: Cursor
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["cursor"] = value

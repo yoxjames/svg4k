@@ -29,12 +29,12 @@ import dev.jamesyox.svg4k.attr.attrs.`in`
 import dev.jamesyox.svg4k.attr.attrs.in2
 import dev.jamesyox.svg4k.attr.attrs.mode
 import dev.jamesyox.svg4k.attr.attrs.result
-import dev.jamesyox.svg4k.attr.attrs.url
 import dev.jamesyox.svg4k.attr.attrs.width
 import dev.jamesyox.svg4k.attr.attrs.x
 import dev.jamesyox.svg4k.attr.attrs.y
 import dev.jamesyox.svg4k.attr.types.obj.none
 import dev.jamesyox.svg4k.attr.types.obj.pct
+import dev.jamesyox.svg4k.attr.types.obj.url
 import dev.jamesyox.svg4k.consumers.svgString
 import kotlin.test.Test
 import kotlin.test.assertEquals

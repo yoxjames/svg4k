@@ -26,6 +26,7 @@ import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.attr.types.obj.LengthOrPercentage
 import dev.jamesyox.svg4k.meta.noGet
 import dev.jamesyox.svg4k.tags.Marker
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * For [Marker], `refX` defines the x coordinate of the marker's reference point, which is to be placed exactly
@@ -45,6 +46,7 @@ context(
     _: Marker
 )
 public var refX: RefX
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["refX"] = value
@@ -86,6 +88,7 @@ context(
     _: AttributeContainer.RefX
 )
 public var refX: RefX
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["refX"] = value

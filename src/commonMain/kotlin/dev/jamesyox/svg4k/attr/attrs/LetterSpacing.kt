@@ -25,6 +25,7 @@ import dev.jamesyox.svg4k.attr.WrappedSvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.attr.types.obj.Length
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `letter-spacing` attribute controls spacing between text characters.
@@ -40,6 +41,7 @@ context(
     _: AttributeContainer.LetterSpacing
 )
 public var letterSpacing: LetterSpacing
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["letter-spacing"] = value

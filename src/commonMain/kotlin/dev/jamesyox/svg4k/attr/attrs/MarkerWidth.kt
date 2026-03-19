@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.attr.types.obj.LengthOrPercentage
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `markerWidth` attribute represents the width of the viewport into which the [dev.jamesyox.svg4k.tags.Marker] is
@@ -32,6 +33,7 @@ context(
     _: AttributeContainer.MarkerWidth
 )
 public var markerWidth: LengthOrPercentage
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["markerWidth"] = value

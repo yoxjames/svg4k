@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `maskContentUnits` attribute indicates which coordinate system to use for the contents of the
@@ -32,6 +33,7 @@ context(
     _: AttributeContainer.MaskContentUnits
 )
 public var maskContentUnits: MaskContentUnits
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["maskContentUnits"] = value

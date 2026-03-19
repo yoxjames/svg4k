@@ -21,6 +21,7 @@ import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `primitiveUnits` attribute specifies the coordinate system for the various length values within the filter
@@ -31,6 +32,7 @@ context(
     _: AttributeContainer.PrimitiveUnits
 )
 public var primitiveUnits: PrimitiveUnits
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["primitiveUnits"] = value.svgString

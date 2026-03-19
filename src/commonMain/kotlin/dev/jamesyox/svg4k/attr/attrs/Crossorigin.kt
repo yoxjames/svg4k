@@ -23,6 +23,7 @@ import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
 import dev.jamesyox.svg4k.tags.FeImage
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The crossorigin attribute, valid on the [dev.jamesyox.svg4k.tags.Image], [FeImage], and
@@ -34,6 +35,7 @@ context(
     _: AttributeContainer.Crossorigin
 )
 public var crossorigin: Crossorigin
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["crossorigin"] = value
@@ -50,6 +52,7 @@ context(
     _: FeImage
 )
 public var crossorigin: Crossorigin
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["crossorigin"] = value

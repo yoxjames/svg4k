@@ -21,6 +21,7 @@ import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The mode attribute defines the blending mode on the [dev.jamesyox.svg4k.tags.FeBlend] filter primitive.
@@ -30,6 +31,7 @@ context(
     _: AttributeContainer.Mode
 )
 public var mode: Mode
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["mode"] = value.svgString

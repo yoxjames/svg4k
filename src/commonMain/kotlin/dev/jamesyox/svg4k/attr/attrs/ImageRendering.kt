@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `image-rendering` attribute provides a hint to the browser about how to make speed vs. quality tradeoffs as it
@@ -35,6 +36,7 @@ context(
     _: AttributeContainer.ImageRendering
 )
 public var imageRendering: FillRule
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["filter"] = value

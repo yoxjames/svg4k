@@ -23,6 +23,7 @@ import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.attr.svgString
 import dev.jamesyox.svg4k.attr.types.obj.Pct
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * This attribute defines where the gradient stop is placed along the gradient vector.
@@ -32,6 +33,7 @@ context(
     _: AttributeContainer.Offset,
 )
 public var offset: Pct
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["offset"] = value

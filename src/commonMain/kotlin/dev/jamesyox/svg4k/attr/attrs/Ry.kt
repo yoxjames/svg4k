@@ -24,6 +24,7 @@ import dev.jamesyox.svg4k.attr.types.obj.LengthOrPercentage
 import dev.jamesyox.svg4k.meta.noGet
 import dev.jamesyox.svg4k.tags.Ellipse
 import dev.jamesyox.svg4k.tags.Rect
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 // TODO: Missing auto? Is this inconsistent? I wish we could override setters....
 
@@ -36,6 +37,7 @@ context(
     _: Ellipse
 )
 public var ry: LengthOrPercentage
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["ry"] = value

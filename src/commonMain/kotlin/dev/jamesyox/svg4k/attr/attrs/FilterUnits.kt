@@ -21,6 +21,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The filterUnits attribute defines the coordinate system for the attributes `x`, `y`, `width` and `height`.
@@ -30,6 +31,7 @@ context(
     _: AttributeContainer.FilterUnits
 )
 public var filterUnits: FillRule
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["filterUnits"] = value

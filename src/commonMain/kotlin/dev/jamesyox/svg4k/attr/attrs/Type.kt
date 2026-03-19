@@ -25,6 +25,7 @@ import dev.jamesyox.svg4k.meta.noGet
 import dev.jamesyox.svg4k.tags.AnimateTransform
 import dev.jamesyox.svg4k.tags.FeColorMatrix
 import dev.jamesyox.svg4k.tags.FeTurbulence
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * Defines the type of transformation, whose values change over time.
@@ -34,6 +35,7 @@ context(
     _: AnimateTransform
 )
 public var type: AnimateTransformType
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["type"] = value
@@ -59,6 +61,7 @@ context(
     _: FeColorMatrix
 )
 public var type: FeColorMatrixType
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["type"] = value
@@ -81,6 +84,7 @@ context(
     _: AttributeContainer.Type.FeFunc
 )
 public var type: FeFuncType
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["type"] = value
@@ -104,6 +108,7 @@ context(
     _: FeTurbulence
 )
 public var type: FeTurbulenceType
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["type"] = value
@@ -124,6 +129,7 @@ context(
     _: AttributeContainer.Type.StyleAndScript
 )
 public var type: String
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["type"] = value

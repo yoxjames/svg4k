@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `lengthAdjust` attribute controls how the text is stretched into the length defined by the `textLength`
@@ -32,6 +33,7 @@ context(
     _: AttributeContainer.LengthAdjust
 )
 public var lengthAdjust: LengthAdjust
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["lengthAdjust"] = value

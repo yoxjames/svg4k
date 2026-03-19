@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.attr.types.obj.Url
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `marker-start` attribute defines the arrowhead or polymarker that will be drawn at the first vertex of the
@@ -37,6 +38,7 @@ context(
     _: AttributeContainer.MarkerStart
 )
 public var markerStart: Url
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["marker-start"] = value

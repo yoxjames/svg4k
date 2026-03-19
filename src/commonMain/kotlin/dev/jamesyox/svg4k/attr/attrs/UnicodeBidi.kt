@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `unicode-bidi` attribute specifies how the accumulation of the background image is managed
@@ -31,6 +32,7 @@ context(
     _: AttributeContainer.UnicodeBidi
 )
 public var unicodeBidi: UnicodeBidi
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["unicode-bidi"] = value

@@ -19,8 +19,12 @@ package dev.jamesyox.svg4k.attr.types.obj
 
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 
-public class Url internal constructor(
+// TODO: Add Documentation
+public class Url(
     public val value: String,
 ) : SvgAttributeType {
     override val svgString: String = "url($value)"
 }
+
+public fun url(value: String): Url = Url(value)
+

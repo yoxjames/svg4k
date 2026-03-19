@@ -24,6 +24,7 @@ import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.WrappedSvgAttributeType
 import dev.jamesyox.svg4k.attr.types.obj.LengthOrPercentage
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `baseline-shift` attribute allows repositioning of the dominant-baseline relative to the [dominantBaseline] of the
@@ -35,6 +36,7 @@ context(
     _: AttributeContainer.Azimuth
 )
 public var baselineShift: BaselineShift
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["baseline-shift"] = value.svgString

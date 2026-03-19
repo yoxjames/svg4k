@@ -21,6 +21,7 @@ import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /*
  * TODO: This only applies to Graphics Elements inside of ClipPath elements. Currently this will be allowed on
@@ -35,6 +36,7 @@ context(
     _: AttributeContainer.ClipPathUnits,
 )
 public var clipPathUnits: ClipPathUnits
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["clipPathUnits"] = value.svgString

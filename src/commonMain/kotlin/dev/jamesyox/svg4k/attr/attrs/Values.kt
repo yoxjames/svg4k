@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.svgString
 import dev.jamesyox.svg4k.meta.noGet
 import dev.jamesyox.svg4k.tags.FeColorMatrix
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 // TODO: Weakly typed
 
@@ -34,6 +35,7 @@ context(
     _: AttributeContainer.Values
 )
 public var values: List<String>
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["values"] = value.svgString(";")

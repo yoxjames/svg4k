@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `spreadMethod` attribute determines how a shape is filled beyond the defined edges of a gradient.
@@ -31,6 +32,7 @@ context(
     _: AttributeContainer.SpreadMethod
 )
 public var spreadMethod: SpreadMethod
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["spreadMethod"] = value

@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The fill-rule attribute is a presentation attribute defining the algorithm to use to determine the inside part of a
@@ -32,6 +33,7 @@ context(
     _: AttributeContainer.FillRule
 )
 public var fillRule: FillRule
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["fill-rule"] = value

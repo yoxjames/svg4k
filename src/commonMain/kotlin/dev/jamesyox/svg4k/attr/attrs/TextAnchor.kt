@@ -22,6 +22,7 @@ import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
 import dev.jamesyox.svg4k.meta.noGet
+import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
 /**
  * The `text-anchor` attribute is used to align (start-, middle- or end-alignment) a string of pre-formatted text
@@ -42,6 +43,7 @@ context(
     _: AttributeContainer.TextAnchor
 )
 public var textAnchor: TextAnchor
+    @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["text-anchor"] = value

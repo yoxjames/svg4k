@@ -5,3 +5,6 @@
   matches SVG's url call quite well.
 * Added convenience method to `repeatDur` so `repeatDur` can be called with a `Duration` (ex `repeatDur(10.seconds)`)
 * Added convenience method to `dur` so `dur` can be called with a `Duration` (ex `dur(10.seconds)`)
+* `SVGStreamTagConsumer` will now throw if you attempt to set elements after starting a child element.
+  * This mirrors the behavior of `kotlinx-html` but I'll be honest that I don't like it.
+  * Prior to this change attributes would simply disappear if they were after a child element.

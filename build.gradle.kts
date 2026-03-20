@@ -146,7 +146,7 @@ mavenPublishing {
     pom {
         name = project.name
         description = "SVG Implementation in Kotlin as a DSL"
-        url = "https://github.com/jamesyox/svg4k"
+        url = "https://github.com/yoxjames/svg4k"
 
         licenses {
             license {

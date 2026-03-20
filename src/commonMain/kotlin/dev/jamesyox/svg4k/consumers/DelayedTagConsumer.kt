@@ -21,14 +21,13 @@ import dev.jamesyox.svg4k.SvgTag
 import dev.jamesyox.svg4k.TagConsumer
 import dev.jamesyox.svg4k.attr.AttributeConsumer
 
-
 /*
  * A lot of this was based heavily on the approach used in kotlinx-html for tag consumption.
  * https://github.com/Kotlin/kotlinx.html
  */
 internal class DelayedTagConsumer<T>(
     private val child: TagConsumer<T>,
-) : TagConsumer<T> {
+) : TagConsumer<T>, AttributeConsumer {
     private var delayed: SvgTag? = null
 
     override fun onTagStart(tag: SvgTag) {
@@ -48,7 +47,8 @@ internal class DelayedTagConsumer<T>(
 
     override fun output(): T = child.output()
 
-    override val attributeConsumer: AttributeConsumer get() = child.attributeConsumer
+    override val attributeConsumer: AttributeConsumer get() = this
+    private val childAttributeConsumer = child.attributeConsumer
 
     private fun process() {
         delayed?.let { tag ->
@@ -56,6 +56,18 @@ internal class DelayedTagConsumer<T>(
             child.onTagStart(tag)
         }
     }
+
+    override fun set(key: String, value: String) {
+        // I really hope there's a way to fix this some day. Kotlinx-Html has the same issue.
+        if (delayed == null) {
+            throw IllegalStateException("Attributes must be set before starting a child element!")
+        }
+        childAttributeConsumer[key] = value
+    }
+
+    override fun get(key: String): String? = childAttributeConsumer[key]
+
+    override val attributesMap: Map<String, String> get() = childAttributeConsumer.attributesMap
 }
 
 public fun <T> TagConsumer<T>.delayed(): TagConsumer<T> = DelayedTagConsumer(this)

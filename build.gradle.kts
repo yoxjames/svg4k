@@ -136,6 +136,11 @@ kotlin {
                 implementation(libs.kotlinx.browser)
             }
         }
+        webTest {
+            dependencies {
+                implementation(libs.kotlinx.html)
+            }
+        }
     }
 }
 

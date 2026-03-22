@@ -31,7 +31,7 @@ plugins {
 }
 
 group = "dev.jamesyox"
-version = "0.1.0-alpha.1"
+version = libs.versions.current.get()
 
 repositories {
     mavenCentral()

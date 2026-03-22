@@ -1,4 +1,4 @@
-## 0.1.0-alpha.2 (upcoming)
+## 0.1.0-alpha.2 
 * `get()` methods on svg attributes can no longer by called in Kotlin.
   * Previously they could throw. This should make it so that cannot happen if someone does this by mistake.
 * Made `Url(...)`'s constructor public and added a convenience `url(...)` function to call the constructor as this

@@ -24,11 +24,11 @@ groupId: `dev.jamesyox`
 
 artifactId: `svg4k`
 
-version: `0.1.0-alpha.1`
+version: `0.1.0-alpha.2`
 
 If you use Gradle you should be able to add the following to your dependencies to use svg4k:
 ```kotlin
-implementation("dev.jamesyox:svg4k:0.1.0-alpha.1")
+implementation("dev.jamesyox:svg4k:0.1.0-alpha.2")
 ```
 
 You are now free to use this in a project, however you _must_ enable context parameters. This library is based around
@@ -42,7 +42,7 @@ kotlin {
     }
 }
 // ....
-implementation("dev.jamesyox:svg4k:0.1.0-alpha.1")
+implementation("dev.jamesyox:svg4k:0.1.0-alpha.2")
 ```
 
 Please note that this library is an alpha and is based around a currently experimental Kotlin language feature. Therefore, you should 

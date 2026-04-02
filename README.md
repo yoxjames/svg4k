@@ -24,11 +24,11 @@ groupId: `dev.jamesyox`
 
 artifactId: `svg4k`
 
-version: `0.1.0-alpha.2`
+version: `0.1.0-alpha.3`
 
 If you use Gradle you should be able to add the following to your dependencies to use svg4k:
 ```kotlin
-implementation("dev.jamesyox:svg4k:0.1.0-alpha.2")
+implementation("dev.jamesyox:svg4k:0.1.0-alpha.3")
 ```
 
 You are now free to use this in a project, however you _must_ enable context parameters. This library is based around
@@ -42,7 +42,7 @@ kotlin {
     }
 }
 // ....
-implementation("dev.jamesyox:svg4k:0.1.0-alpha.2")
+implementation("dev.jamesyox:svg4k:0.1.0-alpha.3")
 ```
 
 Please note that this library is an alpha and is based around a currently experimental Kotlin language feature. Therefore, you should 
@@ -51,34 +51,36 @@ use caution before using this for anything too serious.
 ### Stream
 If you are familiar with the `kotlinx-html` then the syntax should feel pretty familiar:
 ```kotlin
-val svgStr = svgString(isPrettyPrint = true) {
-    svg {
-        viewBox = ViewBox(0, 0, 200, 100)
-        path {
-            fill = "none"
-            stroke = "lightgrey"
-            d {
-                M(20, 50)
-                C(20, -50, 180, 150, 180, 50)
-                C(180, -50, 20, 150, 20, 50)
-                Z
-            }
-        }
-        circle {
-            r = 5.none
-            fill = "red"
-            animateMotion {
-                dur = Dur.ClockValue(10.seconds)
-                repeatCount = RepeatCount.Indefinite
-                path {
-                    M(20, 50)
-                    C(20, -50, 180, 150, 180, 50)
-                    C(180, -50, 20, 150, 20, 50)
-                    Z
-                }
-            }
-        }
+val actual = svgString(isPrettyPrint = true) {
+  svg {
+    viewBox = ViewBox(0, 0, 200, 100)
+    path {
+      fill = SvgPaint.None
+      // Convenience method for stroke = SvgPaint.Color(SvgColor.LightGrey)
+      stroke(SvgColor.LightGrey) 
+      d {
+        M(20, 50)
+        C(20, -50, 180, 150, 180, 50)
+        C(180, -50, 20, 150, 20, 50)
+        Z
+      }
     }
+    circle {
+      r = 5.none
+      // Convenience method for fill = SvgPaint.Color(SvgColor.Red)
+      fill(SvgColor.Red)
+      animateMotion {
+        dur = Dur.ClockValue(10.seconds)
+        repeatCount = RepeatCount.Indefinite
+        path {
+          M(20, 50)
+          C(20, -50, 180, 150, 180, 50)
+          C(180, -50, 20, 150, 20, 50)
+          Z
+        }
+      }
+    }
+  }
 }
 println(svgString)
 ```

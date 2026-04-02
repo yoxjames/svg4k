@@ -66,6 +66,7 @@ class AnimateMotionTest {
                 path {
                     fill = SvgPaint.None
                     stroke(SvgColor.LightGrey)
+                    stroke = SvgPaint.Color(SvgColor.LightGrey)
                     d {
                         M(20, 50)
                         C(20, -50, 180, 150, 180, 50)

@@ -47,7 +47,10 @@ import dev.jamesyox.svg4k.attr.attrs.width
 import dev.jamesyox.svg4k.attr.attrs.x
 import dev.jamesyox.svg4k.attr.attrs.y
 import dev.jamesyox.svg4k.attr.attrs.z
+import dev.jamesyox.svg4k.attr.types.obj.SvgColor
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
 import dev.jamesyox.svg4k.attr.types.obj.none
+import dev.jamesyox.svg4k.attr.types.obj.url
 import dev.jamesyox.svg4k.consumers.svgString
 import dev.jamesyox.svg4k.tags.categories.container.unaryPlus
 import kotlin.test.Test
@@ -188,7 +191,7 @@ class FeDiffuseLightingTest {
                     cx = 60.none
                     cy = 80.none
                     r = 50.none
-                    fill = "green"
+                    fill(SvgColor.Green)
                 }
                 text {
                     textAnchor = TextAnchor.Middle
@@ -196,12 +199,13 @@ class FeDiffuseLightingTest {
                     y = listOf(22.none)
                     +"fePointLight"
                 }
+                val lightMe1 = SvgId("lightMe1")
                 filter {
-                    id = "lightMe1"
+                    id = lightMe1
                     feDiffuseLighting {
                         `in` = In.SourceGraphic
                         result = "light"
-                        lightingColor = "white"
+                        lightingColor = SvgColor.White
                         fePointLight {
                             x = 150
                             y = 60
@@ -222,8 +226,8 @@ class FeDiffuseLightingTest {
                     cx = 170.none
                     cy = 80.none
                     r = 50.none
-                    fill = "green"
-                    filter = "url(#lightMe1)"
+                    fill(SvgColor.Green)
+                    filter(lightMe1)
                 }
                 text {
                     textAnchor = TextAnchor.Middle
@@ -231,12 +235,13 @@ class FeDiffuseLightingTest {
                     y = listOf(22.none)
                     +"feDistantLight"
                 }
+                val lightMe2 = SvgId("lightMe2")
                 filter {
-                    id = "lightMe2"
+                    id = lightMe2
                     feDiffuseLighting {
                         `in` = In.SourceGraphic
                         result = "light"
-                        lightingColor = "white"
+                        lightingColor = SvgColor.White
                         feDistantLight {
                             azimuth = 240
                             elevation = 20
@@ -256,8 +261,8 @@ class FeDiffuseLightingTest {
                     cx = 280.none
                     cy = 80.none
                     r = 50.none
-                    fill = "green"
-                    filter = "url(#lightMe2)"
+                    fill(SvgColor.Green)
+                    filter(lightMe2)
                 }
                 text {
                     textAnchor = TextAnchor.Middle
@@ -265,12 +270,13 @@ class FeDiffuseLightingTest {
                     y = listOf(22.none)
                     +"feSpotlight"
                 }
+                val lightMe3 = SvgId("lightMe3")
                 filter {
-                    id = "lightMe3"
+                    id = lightMe3
                     feDiffuseLighting {
                         `in` = In.SourceGraphic
                         result = "light"
-                        lightingColor = "white"
+                        lightingColor = SvgColor.White
                         feSpotLight {
                             x = 360
                             y = 5
@@ -295,8 +301,8 @@ class FeDiffuseLightingTest {
                     cx = 390.none
                     cy = 80.none
                     r = 50.none
-                    fill = "green"
-                    filter = "url(#lightMe3)"
+                    fill(SvgColor.Green)
+                    filter(lightMe3)
                 }
             }
         }

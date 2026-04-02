@@ -41,6 +41,8 @@ import dev.jamesyox.svg4k.attr.attrs.viewBox
 import dev.jamesyox.svg4k.attr.attrs.width
 import dev.jamesyox.svg4k.attr.attrs.x
 import dev.jamesyox.svg4k.attr.attrs.y
+import dev.jamesyox.svg4k.attr.types.obj.SvgColor
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
 import dev.jamesyox.svg4k.attr.types.obj.none
 import dev.jamesyox.svg4k.attr.types.obj.pct
 import dev.jamesyox.svg4k.attr.types.obj.url
@@ -175,6 +177,7 @@ class FeColorMatrixTest {
             </svg>""".trimIndent()
         val actual = svgString(isPrettyPrint = true) {
             svg {
+                val circles = SvgId("circles")
                 width = 100.pct
                 height = 100.pct
                 viewBox = ViewBox(0, 0, 150, 500)
@@ -184,40 +187,41 @@ class FeColorMatrixTest {
                 }
                 defs {
                     g {
-                        id = "circles"
+                        id = circles
                         circle {
                             cx = 30.none
                             cy = 30.none
                             r = 20.none
-                            fill = "blue"
+                            fill(SvgColor.Blue)
                             fillOpacity(0.5f)
                         }
                         circle {
                             cx = 20.none
                             cy = 50.none
                             r = 20.none
-                            fill = "green"
+                            fill(SvgColor.Green)
                             fillOpacity(0.5f)
                         }
                         circle {
                             cx = 40.none
                             cy = 50.none
                             r = 20.none
-                            fill = "red"
+                            fill(SvgColor.Red)
                             fillOpacity(0.5f)
                         }
                     }
                 }
                 use {
-                    href = "#circles"
+                    href(circles)
                 }
                 text {
                     x = listOf(70.none)
                     y = listOf(50.none)
                     +"Reference"
                 }
+                val colorMeTheSame = SvgId("colorMeTheSame")
                 filter {
-                    id = "colorMeTheSame"
+                    id = colorMeTheSame
                     feColorMatrix {
                         `in` = In.SourceGraphic
                         type = FeColorMatrixType.Matrix
@@ -225,19 +229,20 @@ class FeColorMatrixTest {
                     }
                 }
                 use {
-                    href = "#circles"
+                    href(circles)
                     transform {
                         translate(0, 70)
                     }
-                    filter = url("#colorMeTheSame").svgString
+                    filter(colorMeTheSame)
                 }
                 text {
                     x = listOf(70.none)
                     y = listOf(120.none)
                     +"Identity matrix"
                 }
+                val colorMeGreen = SvgId("colorMeGreen")
                 filter {
-                    id = "colorMeGreen"
+                    id = colorMeGreen
                     feColorMatrix {
                         `in` = In.SourceGraphic
                         type = FeColorMatrixType.Matrix
@@ -245,19 +250,20 @@ class FeColorMatrixTest {
                     }
                 }
                 use {
-                    href = "#circles"
+                    href(circles)
                     transform {
                         translate(0, 140)
                     }
-                    filter = url("#colorMeGreen").svgString
+                    filter(colorMeGreen)
                 }
                 text {
                     x = listOf(70.none)
                     y = listOf(190.none)
                     +"rgbToGreen"
                 }
+                val colorMeSaturate = SvgId("colorMeSaturate")
                 filter {
-                    id = "colorMeSaturate"
+                    id = colorMeSaturate
                     feColorMatrix {
                         `in` = In.SourceGraphic
                         type = FeColorMatrixType.Saturate
@@ -265,19 +271,20 @@ class FeColorMatrixTest {
                     }
                 }
                 use {
-                    href = "#circles"
+                    href(circles)
                     transform {
                         translate(0, 210)
                     }
-                    filter = url("#colorMeSaturate").svgString
+                    filter(colorMeSaturate)
                 }
                 text {
                     x = listOf(70.none)
                     y = listOf(260.none)
                     +"saturate"
                 }
+                val colorMeHueRotate = SvgId("colorMeHueRotate")
                 filter {
-                    id = "colorMeHueRotate"
+                    id = colorMeHueRotate
                     feColorMatrix {
                         `in` = In.SourceGraphic
                         type = FeColorMatrixType.HueRotate
@@ -285,30 +292,31 @@ class FeColorMatrixTest {
                     }
                 }
                 use {
-                    href = "#circles"
+                    href(circles)
                     transform {
                         translate(0, 280)
                     }
-                    filter = url("#colorMeHueRotate").svgString
+                    filter(colorMeHueRotate)
                 }
                 text {
                     x = listOf(70.none)
                     y = listOf(330.none)
                     +"hueRotate"
                 }
+                val colorMeLTA = SvgId("colorMeLTA")
                 filter {
-                    id = "colorMeLTA"
+                    id = colorMeLTA
                     feColorMatrix {
                         `in` = In.SourceGraphic
                         type = FeColorMatrixType.LuminanceToAlpha
                     }
                 }
                 use {
-                    href = "#circles"
+                    href(circles)
                     transform {
                         translate(0, 350)
                     }
-                    filter = url("#colorMeLTA").svgString
+                    filter(colorMeLTA)
                 }
                 text {
                     x = listOf(70.none)

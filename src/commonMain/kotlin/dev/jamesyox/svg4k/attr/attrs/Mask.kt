@@ -20,7 +20,9 @@ package dev.jamesyox.svg4k.attr.attrs
 import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.set
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
 import dev.jamesyox.svg4k.attr.types.obj.Url
+import dev.jamesyox.svg4k.attr.types.obj.asUrl
 import dev.jamesyox.svg4k.meta.noGet
 import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
@@ -38,3 +40,14 @@ public var mask: Url
     set(value) {
         ac["mask"] = value
     }
+
+/**
+ * Convenience function to set [mask] to a [Url] pointed at a [SvgId].
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.Mask
+)
+public fun mask(id: SvgId) {
+    mask = id.asUrl()
+}

@@ -28,6 +28,8 @@ import dev.jamesyox.svg4k.attr.attrs.r
 import dev.jamesyox.svg4k.attr.attrs.repeatCount
 import dev.jamesyox.svg4k.attr.attrs.stroke
 import dev.jamesyox.svg4k.attr.attrs.viewBox
+import dev.jamesyox.svg4k.attr.types.obj.SvgColor
+import dev.jamesyox.svg4k.attr.types.obj.SvgPaint
 import dev.jamesyox.svg4k.attr.types.obj.none
 import dev.jamesyox.svg4k.consumers.svgString
 import dev.jamesyox.svg4k.util.C
@@ -62,8 +64,8 @@ class AnimateMotionTest {
             svg {
                 viewBox = ViewBox(0, 0, 200, 100)
                 path {
-                    fill = "none"
-                    stroke = "lightgrey"
+                    fill = SvgPaint.None
+                    stroke(SvgColor.LightGrey)
                     d {
                         M(20, 50)
                         C(20, -50, 180, 150, 180, 50)
@@ -73,7 +75,7 @@ class AnimateMotionTest {
                 }
                 circle {
                     r = 5.none
-                    fill = "red"
+                    fill(SvgColor.Red)
                     animateMotion {
                         dur = Dur.ClockValue(10.seconds)
                         repeatCount = RepeatCount.Indefinite

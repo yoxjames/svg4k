@@ -32,6 +32,9 @@ import dev.jamesyox.svg4k.attr.attrs.viewBox
 import dev.jamesyox.svg4k.attr.attrs.width
 import dev.jamesyox.svg4k.attr.attrs.x
 import dev.jamesyox.svg4k.attr.attrs.y
+import dev.jamesyox.svg4k.attr.types.obj.SvgColor
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
+import dev.jamesyox.svg4k.attr.types.obj.SvgPaint
 import dev.jamesyox.svg4k.attr.types.obj.none
 import dev.jamesyox.svg4k.consumers.svgString
 import dev.jamesyox.svg4k.util.M
@@ -91,9 +94,10 @@ class SymbolTest {
 
         val actual = svgString(isPrettyPrint = true) {
             svg {
+                val myDot = SvgId("myDot")
                 viewBox = ViewBox(0, 0, 80, 20)
                 symbol {
-                    id = "myDot"
+                    id = myDot
                     width = 10.none
                     height = 10.none
                     viewBox = ViewBox(0, 0, 2, 2)
@@ -118,35 +122,35 @@ class SymbolTest {
                         M(70, 0)
                         v(20)
                     }
-                    fill = "none"
-                    stroke = "pink"
+                    fill = SvgPaint.None
+                    stroke(SvgColor.Pink)
                 }
                 use {
-                    href = "#myDot"
+                    href(myDot)
                     x = 5.none
                     y = 5.none
                     opacity = 1.0f
                 }
                 use {
-                    href = "#myDot"
+                    href(myDot)
                     x = 20.none
                     y = 5.none
                     opacity = 0.8f
                 }
                 use {
-                    href = "#myDot"
+                    href(myDot)
                     x = 35.none
                     y = 5.none
                     opacity = 0.6f
                 }
                 use {
-                    href = "#myDot"
+                    href(myDot)
                     x = 50.none
                     y = 5.none
                     opacity = 0.4f
                 }
                 use {
-                    href = "#myDot"
+                    href(myDot)
                     x = 65.none
                     y = 5.none
                     opacity = 0.2f

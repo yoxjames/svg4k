@@ -26,6 +26,8 @@ import dev.jamesyox.svg4k.attr.attrs.id
 import dev.jamesyox.svg4k.attr.attrs.r
 import dev.jamesyox.svg4k.attr.attrs.viewBox
 import dev.jamesyox.svg4k.attr.attrs.width
+import dev.jamesyox.svg4k.attr.types.obj.SvgColor
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
 import dev.jamesyox.svg4k.attr.types.obj.none
 import dev.jamesyox.svg4k.consumers.svgString
 import kotlin.test.Test
@@ -68,39 +70,42 @@ class ViewTest {
         """.trimIndent()
 
         val actual = svgString(isPrettyPrint = true) {
+            val one = SvgId("one")
+            val two = SvgId("two")
+            val three = SvgId("three")
             svg {
                 viewBox = ViewBox(0, 0, 300, 100)
                 width = 300.none
                 height = 100.none
                 view {
-                    id = "one"
+                    id = one
                     viewBox = ViewBox(0, 0, 100, 100)
                 }
                 circle {
                     cx = 50.none
                     cy = 50.none
                     r = 40.none
-                    fill = "red"
+                    fill(SvgColor.Red)
                 }
                 view {
-                    id = "two"
+                    id = two
                     viewBox = ViewBox(100, 0, 100, 100)
                 }
                 circle {
                     cx = 150.none
                     cy = 50.none
                     r = 40.none
-                    fill = "green"
+                    fill(SvgColor.Green)
                 }
                 view {
-                    id = "three"
+                    id = three
                     viewBox = ViewBox(200, 0, 100, 100)
                 }
                 circle {
                     cx = 250.none
                     cy = 50.none
                     r = 40.none
-                    fill = "blue"
+                    fill(SvgColor.Blue)
                 }
             }
         }

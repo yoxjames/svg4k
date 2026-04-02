@@ -19,10 +19,14 @@ package dev.jamesyox.svg4k.attr.attrs
 
 import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
+import dev.jamesyox.svg4k.attr.set
+import dev.jamesyox.svg4k.attr.types.obj.SvgColor
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
+import dev.jamesyox.svg4k.attr.types.obj.SvgPaint
+import dev.jamesyox.svg4k.attr.types.obj.Url
+import dev.jamesyox.svg4k.attr.types.obj.asUrl
 import dev.jamesyox.svg4k.meta.noGet
 import dev.jamesyox.svg4k.util.SetOnlyPropertyError
-
-// TODO: Paint Type
 
 /**
  * The `stroke` attribute is a presentation attribute defining the color (or any SVG paint servers
@@ -32,9 +36,59 @@ context(
     ac: AttributeConsumer,
     _: AttributeContainer.Stroke
 )
-public var stroke: String
+public var stroke: SvgPaint
     @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
         ac["stroke"] = value
     }
+
+/**
+ * The `stroke` attribute is a presentation attribute defining the color (or any SVG paint servers
+ * like gradients or patterns) used to paint the outline of the shape.
+ *
+ * This is a convenience function equivalent to
+ *
+ * ```kotlin
+ * stroke = SvgPaint.Color(color)
+ * ```
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.Stroke
+)
+public fun stroke(color: SvgColor) {
+    stroke = SvgPaint.Color(color)
+}
+
+/**
+ * The `stroke` attribute is a presentation attribute defining the color (or any SVG paint servers
+ * like gradients or patterns) used to paint the outline of the shape.
+ *
+ * This is a convenience function equivalent to
+ *
+ * ```kotlin
+ * stroke = SvgPaint.Url(url)
+ * ```
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.Stroke
+)
+public fun stroke(url: Url) {
+    stroke = SvgPaint.Url(url)
+}
+
+/**
+ * The `stroke` attribute is a presentation attribute defining the color (or any SVG paint servers
+ * like gradients or patterns) used to paint the outline of the shape.
+ *
+ * This is a convenience to set [stroke] to a [Url] pointed at a [dev.jamesyox.svg4k.attr.types.obj.SvgId]
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.Stroke
+)
+public fun stroke(id: SvgId) {
+    stroke(id.asUrl())
+}

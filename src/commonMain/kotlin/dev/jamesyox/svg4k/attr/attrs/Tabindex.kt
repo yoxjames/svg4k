@@ -23,8 +23,6 @@ import dev.jamesyox.svg4k.attr.svgString
 import dev.jamesyox.svg4k.meta.noGet
 import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
-// TODO: Weak typing
-
 /**
  * The `tabindex` attribute allows you to control whether an element is focusable and to define the relative order of
  * the element for the purposes of sequential focus navigation.

@@ -30,8 +30,11 @@ import dev.jamesyox.svg4k.attr.attrs.strokeWidth
 import dev.jamesyox.svg4k.attr.attrs.viewBox
 import dev.jamesyox.svg4k.attr.attrs.width
 import dev.jamesyox.svg4k.attr.types.obj.Point
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
+import dev.jamesyox.svg4k.attr.types.obj.SvgPaint
 import dev.jamesyox.svg4k.attr.types.obj.none
 import dev.jamesyox.svg4k.attr.types.obj.pct
+import dev.jamesyox.svg4k.attr.types.obj.url
 import dev.jamesyox.svg4k.consumers.svgString
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -70,10 +73,11 @@ class PatternTest {
 
         val actual = svgString(isPrettyPrint = true) {
             svg {
+                val star = SvgId("star")
                 viewBox = ViewBox(0, 0, 230, 100)
                 defs {
                     pattern {
-                        id = "star"
+                        id = star
                         viewBox = ViewBox(0, 0, 10, 10)
                         width = 10.pct
                         height = 10.pct
@@ -95,15 +99,15 @@ class PatternTest {
                     cx = 50.none
                     cy = 50.none
                     r = 50.none
-                    fill = "url(#star)"
+                    fill(star)
                 }
                 circle {
                     cx = 180.none
                     cy = 50.none
                     r = 40.none
-                    fill = "none"
+                    fill = SvgPaint.None
                     strokeWidth = 20.none
-                    stroke = "url(#star)"
+                    stroke(star)
                 }
             }
         }

@@ -29,7 +29,10 @@ import dev.jamesyox.svg4k.attr.attrs.r
 import dev.jamesyox.svg4k.attr.attrs.stdDeviation
 import dev.jamesyox.svg4k.attr.attrs.width
 import dev.jamesyox.svg4k.attr.types.obj.NumberOptionalNumber
+import dev.jamesyox.svg4k.attr.types.obj.SvgColor
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
 import dev.jamesyox.svg4k.attr.types.obj.none
+import dev.jamesyox.svg4k.attr.types.obj.url
 import dev.jamesyox.svg4k.consumers.svgString
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -64,10 +67,11 @@ class FeGaussianBlurTest {
 
         val actual = svgString(isPrettyPrint = true) {
             svg {
+                val blurMe = SvgId("blurMe")
                 width = 230.none
                 height = 120.none
                 filter {
-                    id = "blurMe"
+                    id = blurMe
                     feGaussianBlur {
                         `in` = In.SourceGraphic
                         stdDeviation = NumberOptionalNumber(5, null)
@@ -77,14 +81,14 @@ class FeGaussianBlurTest {
                     cx = 60.none
                     cy = 60.none
                     r = 50.none
-                    fill = "green"
+                    fill(SvgColor.Green)
                 }
                 circle {
                     cx = 170.none
                     cy = 60.none
                     r = 50.none
-                    fill = "green"
-                    filter = "url(#blurMe)"
+                    fill(SvgColor.Green)
+                    filter(blurMe)
                 }
             }
         }

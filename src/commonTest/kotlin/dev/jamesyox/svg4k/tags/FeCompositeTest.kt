@@ -36,8 +36,11 @@ import dev.jamesyox.svg4k.attr.attrs.transform
 import dev.jamesyox.svg4k.attr.attrs.width
 import dev.jamesyox.svg4k.attr.attrs.x
 import dev.jamesyox.svg4k.attr.attrs.y
+import dev.jamesyox.svg4k.attr.types.obj.SvgColor
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
 import dev.jamesyox.svg4k.attr.types.obj.none
 import dev.jamesyox.svg4k.attr.types.obj.px
+import dev.jamesyox.svg4k.attr.types.obj.url
 import dev.jamesyox.svg4k.consumers.svgString
 import dev.jamesyox.svg4k.tags.categories.container.unaryPlus
 import dev.jamesyox.svg4k.util.translate
@@ -236,9 +239,16 @@ class FeCompositeTest {
 
         val actual = svgString(isPrettyPrint = true) {
             svg {
+                val imageOver = SvgId("imageOver")
+                val imageIn = SvgId("imageIn")
+                val imageOut = SvgId("imageOut")
+                val imageAtop = SvgId("imageAtop")
+                val imageXor = SvgId("imageXor")
+                val imageArithmetic = SvgId("imageArithmetic")
+                val imageLighter = SvgId("imageLighter")
                 defs {
                     filter {
-                        id = "imageOver"
+                        id = imageOver
                         feImage {
                             href="mdn_logo_only_color.png"
                             x = 10.px
@@ -251,7 +261,7 @@ class FeCompositeTest {
                         }
                     }
                     filter {
-                        id = "imageIn"
+                        id = imageIn
                         feImage {
                             href="mdn_logo_only_color.png"
                             x = 10.px
@@ -264,7 +274,7 @@ class FeCompositeTest {
                         }
                     }
                     filter {
-                        id = "imageOut"
+                        id = imageOut
                         feImage {
                             href="mdn_logo_only_color.png"
                             x = 10.px
@@ -277,7 +287,7 @@ class FeCompositeTest {
                         }
                     }
                     filter {
-                        id = "imageAtop"
+                        id = imageAtop
                         feImage {
                             href="mdn_logo_only_color.png"
                             x = 10.px
@@ -290,7 +300,7 @@ class FeCompositeTest {
                         }
                     }
                     filter {
-                        id = "imageXor"
+                        id = imageXor
                         feImage {
                             href="mdn_logo_only_color.png"
                             x = 10.px
@@ -303,7 +313,7 @@ class FeCompositeTest {
                         }
                     }
                     filter {
-                        id = "imageArithmetic"
+                        id = imageArithmetic
                         feImage {
                             href="mdn_logo_only_color.png"
                             x = 10.px
@@ -320,7 +330,7 @@ class FeCompositeTest {
                         }
                     }
                     filter {
-                        id = "imageLighter"
+                        id = imageLighter
                         feImage {
                             href="mdn_logo_only_color.png"
                             x = 10.px
@@ -341,8 +351,8 @@ class FeCompositeTest {
                         cx = 90.px
                         cy = 80.px
                         r = 70.px
-                        fill = "#cc0000"
-                        filter = "url(#imageOver)"
+                        fill(SvgColor.Hex(0xcc0000))
+                        filter(imageOver)
                     }
                     text {
                         x = listOf(80.none)
@@ -358,8 +368,8 @@ class FeCompositeTest {
                         cx = 90.px
                         cy = 80.px
                         r = 70.px
-                        fill = "#cc0000"
-                        filter = "url(#imageIn)"
+                        fill(SvgColor.Hex(0xcc0000))
+                        filter(imageIn)
                     }
                     text {
                         x = listOf(80.none)
@@ -375,8 +385,8 @@ class FeCompositeTest {
                         cx = 90.px
                         cy = 80.px
                         r = 70.px
-                        fill = "#cc0000"
-                        filter = "url(#imageOut)"
+                        fill(SvgColor.Hex(0xcc0000))
+                        filter(imageOut)
                     }
                     text {
                         x = listOf(80.none)
@@ -392,8 +402,8 @@ class FeCompositeTest {
                         cx = 90.px
                         cy = 80.px
                         r = 70.px
-                        fill = "#cc0000"
-                        filter = "url(#imageAtop)"
+                        fill(SvgColor.Hex(0xcc0000))
+                        filter(imageAtop)
                     }
                     text {
                         x = listOf(80.none)
@@ -409,8 +419,8 @@ class FeCompositeTest {
                         cx = 90.px
                         cy = 80.px
                         r = 70.px
-                        fill = "#cc0000"
-                        filter = "url(#imageXor)"
+                        fill(SvgColor.Hex(0xcc0000))
+                        filter(imageXor)
                     }
                     text {
                         x = listOf(80.none)
@@ -426,8 +436,8 @@ class FeCompositeTest {
                         cx = 90.px
                         cy = 80.px
                         r = 70.px
-                        fill = "#cc0000"
-                        filter = "url(#imageArithmetic)"
+                        fill(SvgColor.Hex(0xcc0000))
+                        filter(imageArithmetic)
                     }
                     text {
                         x = listOf(70.none)
@@ -443,8 +453,8 @@ class FeCompositeTest {
                         cx = 90.px
                         cy = 80.px
                         r = 70.px
-                        fill = "#cc0000"
-                        filter = "url(#imageLighter)"
+                        fill(SvgColor.Hex(0xcc0000))
+                        filter(imageLighter)
                     }
                     text {
                         x = listOf(80.none)

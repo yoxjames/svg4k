@@ -26,8 +26,11 @@ import dev.jamesyox.svg4k.attr.attrs.offset
 import dev.jamesyox.svg4k.attr.attrs.r
 import dev.jamesyox.svg4k.attr.attrs.stopColor
 import dev.jamesyox.svg4k.attr.attrs.viewBox
+import dev.jamesyox.svg4k.attr.types.obj.SvgColor
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
 import dev.jamesyox.svg4k.attr.types.obj.none
 import dev.jamesyox.svg4k.attr.types.obj.pct
+import dev.jamesyox.svg4k.attr.types.obj.url
 import dev.jamesyox.svg4k.consumers.svgString
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -54,23 +57,24 @@ class RadialGradientTest {
                     cx="5"
                     cy="5"
                     r="4"
-                    fill="url('#myGradient')" />
+                    fill="url(#myGradient)" />
             </svg>
         """.trimIndent()
 
         val actual = svgString(isPrettyPrint = true) {
             svg {
+                val myGradient = SvgId("myGradient")
                 viewBox = ViewBox(0, 0, 10, 10)
                 defs {
                     radialGradient {
-                        id="myGradient"
+                        id = myGradient
                         stop {
                             offset = 10.pct
-                            stopColor = "gold"
+                            stopColor = SvgColor.Gold
                         }
                         stop {
                             offset = 95.pct
-                            stopColor = "red"
+                            stopColor = SvgColor.Red
                         }
                     }
                 }
@@ -78,7 +82,7 @@ class RadialGradientTest {
                     cx = 5.none
                     cy = 5.none
                     r = 4.none
-                    fill = "url('#myGradient')"
+                    fill(myGradient)
                 }
             }
         }

@@ -31,8 +31,11 @@ import dev.jamesyox.svg4k.attr.attrs.r
 import dev.jamesyox.svg4k.attr.attrs.stdDeviation
 import dev.jamesyox.svg4k.attr.attrs.viewBox
 import dev.jamesyox.svg4k.attr.types.obj.NumberOptionalNumber
+import dev.jamesyox.svg4k.attr.types.obj.SvgColor
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
 import dev.jamesyox.svg4k.attr.types.obj.none
 import dev.jamesyox.svg4k.attr.types.obj.pct
+import dev.jamesyox.svg4k.attr.types.obj.url
 import dev.jamesyox.svg4k.consumers.svgString
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -93,10 +96,13 @@ class FeDropShadowTest {
 
         val actual = svgString(isPrettyPrint = true) {
             svg {
+                val shadow = SvgId("shadow")
+                val shadow2 = SvgId("shadow2")
+                val shadow3 = SvgId("shadow3")
                 viewBox = ViewBox(0, 0, 30, 10)
                 defs {
                     filter {
-                        id = "shadow"
+                        id = shadow
                         feDropShadow {
                             dx = 0.2
                             dy = 0.4
@@ -104,21 +110,21 @@ class FeDropShadowTest {
                         }
                     }
                     filter {
-                        id = "shadow2"
+                        id = shadow2
                         feDropShadow {
                             dx = 0
                             dy = 0
                             stdDeviation = NumberOptionalNumber(0.5, null)
-                            floodColor = "cyan"
+                            floodColor = SvgColor.Cyan
                         }
                     }
                     filter {
-                        id = "shadow3"
+                        id = shadow3
                         feDropShadow {
                             dx = -0.8
                             dy = -0.8
                             stdDeviation = NumberOptionalNumber(0, null)
-                            floodColor = "pink"
+                            floodColor = SvgColor.Pink
                             floodOpacity = 0.5
                         }
                     }
@@ -127,22 +133,22 @@ class FeDropShadowTest {
                     cx = 5.none
                     cy = 50.pct
                     r = 4.none
-                    fill = "pink"
-                    filter = "url(#shadow)"
+                    fill(SvgColor.Pink)
+                    filter(shadow)
                 }
                 circle {
                     cx = 15.none
                     cy = 50.pct
                     r = 4.none
-                    fill = "pink"
-                    filter = "url(#shadow2)"
+                    fill(SvgColor.Pink)
+                    filter(shadow2)
                 }
                 circle {
                     cx = 25.none
                     cy = 50.pct
                     r = 4.none
-                    fill = "pink"
-                    filter = "url(#shadow3)"
+                    fill(SvgColor.Pink)
+                    filter(shadow3)
                 }
             }
         }

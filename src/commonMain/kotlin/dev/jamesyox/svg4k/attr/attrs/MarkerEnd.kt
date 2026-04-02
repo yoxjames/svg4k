@@ -20,7 +20,9 @@ package dev.jamesyox.svg4k.attr.attrs
 import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.set
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
 import dev.jamesyox.svg4k.attr.types.obj.Url
+import dev.jamesyox.svg4k.attr.types.obj.asUrl
 import dev.jamesyox.svg4k.meta.noGet
 import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
@@ -43,3 +45,15 @@ public var markerEnd: Url
     set(value) {
         ac["marker-end"] = value
     }
+
+/**
+ * Convenience method to set [markerEnd] to a [Url] pointing to a [dev.jamesyox.svg4k.attr.types.obj.SvgId].
+ * For Example: `url(#myId)`
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.MarkerEnd
+)
+public fun markerEnd(id: SvgId) {
+    markerEnd = id.asUrl()
+}

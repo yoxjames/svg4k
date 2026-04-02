@@ -19,10 +19,10 @@ package dev.jamesyox.svg4k.attr.attrs
 
 import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
+import dev.jamesyox.svg4k.attr.set
+import dev.jamesyox.svg4k.attr.types.obj.SvgColor
 import dev.jamesyox.svg4k.meta.noGet
 import dev.jamesyox.svg4k.util.SetOnlyPropertyError
-
-// TODO: Color Typing
 
 /**
  * The `flood-color` attribute indicates what color to use to flood the current filter primitive subregion.
@@ -31,7 +31,7 @@ context(
     ac: AttributeConsumer,
     _: AttributeContainer.FloodColor
 )
-public var floodColor: String
+public var floodColor: SvgColor
     @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {

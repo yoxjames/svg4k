@@ -32,6 +32,8 @@ import dev.jamesyox.svg4k.attr.attrs.result
 import dev.jamesyox.svg4k.attr.attrs.width
 import dev.jamesyox.svg4k.attr.attrs.x
 import dev.jamesyox.svg4k.attr.attrs.y
+import dev.jamesyox.svg4k.attr.types.obj.SvgColor
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
 import dev.jamesyox.svg4k.attr.types.obj.none
 import dev.jamesyox.svg4k.attr.types.obj.pct
 import dev.jamesyox.svg4k.attr.types.obj.url
@@ -73,27 +75,27 @@ class FeBlendTest {
                     filter="url(#spotlight)" />
             </svg>
         """.trimIndent()
-        val filterId = "spotlight"
-        val floodResult = "floodFill"
         val actual = svgString(isPrettyPrint = true) {
             svg {
+                val filterId = SvgId("spotlight")
+                val floodFill = "floodFill"
                 width = 200.none
                 height = 200.none
                 defs {
                     filter {
                         id = filterId
                         feFlood {
-                            result = floodResult
+                            result = "floodFill"
                             x = 0.none
                             y = 0.none
                             width = 100.pct
                             height = 100.pct
-                            floodColor = "green"
+                            floodColor = SvgColor.Green
                             floodOpacity = 1f
                         }
                         feBlend {
                             `in` = In.SourceGraphic
-                            in2 = In.Primitive(floodResult)
+                            in2 = In.Primitive(floodFill)
                             mode = Mode.Multiply
                         }
                     }
@@ -104,7 +106,7 @@ class FeBlendTest {
                     y = 10.pct
                     width = 80.pct
                     height = 80.pct
-                    filter = url("#$filterId").svgString
+                    filter(filterId)
                 }
             }
         }

@@ -24,6 +24,7 @@ import dev.jamesyox.svg4k.attr.attrs.x1
 import dev.jamesyox.svg4k.attr.attrs.x2
 import dev.jamesyox.svg4k.attr.attrs.y1
 import dev.jamesyox.svg4k.attr.attrs.y2
+import dev.jamesyox.svg4k.attr.types.obj.SvgColor
 import dev.jamesyox.svg4k.attr.types.obj.none
 import dev.jamesyox.svg4k.consumers.svgString
 import kotlin.test.Test
@@ -53,7 +54,7 @@ class LineTest {
                     y1 = 80.none
                     x2 = 100.none
                     y2 = 20.none
-                    stroke = "black"
+                    stroke(SvgColor.Black)
                 }
             }
         }

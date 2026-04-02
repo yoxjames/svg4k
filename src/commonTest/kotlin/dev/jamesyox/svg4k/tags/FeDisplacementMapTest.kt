@@ -40,7 +40,9 @@ import dev.jamesyox.svg4k.attr.attrs.width
 import dev.jamesyox.svg4k.attr.attrs.xChannelSelector
 import dev.jamesyox.svg4k.attr.attrs.yChannelSelector
 import dev.jamesyox.svg4k.attr.types.obj.NumberOptionalNumber
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
 import dev.jamesyox.svg4k.attr.types.obj.none
+import dev.jamesyox.svg4k.attr.types.obj.url
 import dev.jamesyox.svg4k.consumers.svgString
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -78,11 +80,12 @@ class FeDisplacementMapTest {
 
         val actual = svgString(isPrettyPrint = true) {
             svg {
+                val displacementFilter = SvgId("displacementFilter")
                 width = 200.none
                 height = 200.none
                 viewBox = ViewBox(0, 0, 220, 220)
                 filter {
-                    id = "displacementFilter"
+                    id = displacementFilter
                     feTurbulence {
                         type = FeTurbulenceType.Turbulence
                         baseFrequency = NumberOptionalNumber(0.05, null)
@@ -101,7 +104,7 @@ class FeDisplacementMapTest {
                     cx = 100.none
                     cy = 100.none
                     r = 100.none
-                    filter = "url(#displacementFilter)"
+                    filter(displacementFilter)
                 }
             }
         }

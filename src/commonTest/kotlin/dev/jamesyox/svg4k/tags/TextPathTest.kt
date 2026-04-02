@@ -24,6 +24,9 @@ import dev.jamesyox.svg4k.attr.attrs.href
 import dev.jamesyox.svg4k.attr.attrs.id
 import dev.jamesyox.svg4k.attr.attrs.stroke
 import dev.jamesyox.svg4k.attr.attrs.viewBox
+import dev.jamesyox.svg4k.attr.types.obj.SvgColor
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
+import dev.jamesyox.svg4k.attr.types.obj.SvgPaint
 import dev.jamesyox.svg4k.consumers.svgString
 import dev.jamesyox.svg4k.tags.categories.container.unaryPlus
 import dev.jamesyox.svg4k.util.M
@@ -39,13 +42,13 @@ class TextPathTest {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 100 100">
                 <path
-                    id="MyPath"
+                    id="myPath"
                     fill="none"
                     stroke="red"
                     d="M 10 90 Q 90 90 90 45 Q 90 10 50 10 Q 10 10 10 40 Q 10 70 45 70 Q 70 70 75 50" />
                 <text>
                     <textPath
-                        href="#MyPath">
+                        href="#myPath">
                         Quick brown fox jumps over the lazy dog.
                     </textPath>
                 </text>
@@ -54,11 +57,12 @@ class TextPathTest {
 
         val actual = svgString(isPrettyPrint = true) {
             svg {
+                val myPath = SvgId("myPath")
                 viewBox = ViewBox(0, 0, 100, 100)
                 path {
-                    id = "MyPath"
-                    fill = "none"
-                    stroke = "red"
+                    id = myPath
+                    fill = SvgPaint.None
+                    stroke(SvgColor.Red)
                     d {
                         M(10, 90)
                         Q(90, 90, 90, 45)
@@ -70,7 +74,7 @@ class TextPathTest {
                 }
                 text {
                     textPath {
-                        href = "#MyPath"
+                        href = myPath
                         +"Quick brown fox jumps over the lazy dog."
                     }
                 }

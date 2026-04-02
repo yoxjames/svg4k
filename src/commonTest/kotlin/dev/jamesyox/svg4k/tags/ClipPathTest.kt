@@ -27,6 +27,8 @@ import dev.jamesyox.svg4k.attr.attrs.href
 import dev.jamesyox.svg4k.attr.attrs.id
 import dev.jamesyox.svg4k.attr.attrs.r
 import dev.jamesyox.svg4k.attr.attrs.viewBox
+import dev.jamesyox.svg4k.attr.types.obj.SvgColor
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
 import dev.jamesyox.svg4k.attr.types.obj.Url
 import dev.jamesyox.svg4k.attr.types.obj.none
 import dev.jamesyox.svg4k.consumers.svgString
@@ -40,7 +42,6 @@ import kotlin.test.assertEquals
 class ClipPathTest {
     @Test
     fun mozillaExample() {
-        val clipId = "myClip"
         val expected = """
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -62,10 +63,12 @@ class ClipPathTest {
             </svg>
         """.trimIndent()
         val actual = svgString(isPrettyPrint = true) {
+            val myClip = SvgId("myClip")
+            val heart = SvgId("heart")
             svg {
                 viewBox = ViewBox(0, 0, 100, 100)
                 clipPath {
-                    id = clipId
+                    id = myClip
                     circle {
                         cx = 40.none
                         cy = 35.none
@@ -73,7 +76,7 @@ class ClipPathTest {
                     }
                 }
                 path {
-                    id = "heart"
+                    id = heart
                     d {
                         M(10, 30)
                         A(rx = 20, ry = 20, angle = 0, largeArcFlag = false, sweepFlag = true, x = 50, y = 30)
@@ -84,10 +87,10 @@ class ClipPathTest {
                     }
                 }
                 use {
-                    clipPath(Url("#$clipId"))
-                    href = "#heart"
+                    clipPath(myClip)
+                    href(heart)
                     // TODO: An unfortunate compromise
-                    fill = "red"
+                    fill(SvgColor.Red)
                 }
             }
         }

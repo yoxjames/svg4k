@@ -38,6 +38,9 @@ import dev.jamesyox.svg4k.attr.attrs.viewBox
 import dev.jamesyox.svg4k.attr.attrs.width
 import dev.jamesyox.svg4k.attr.attrs.x
 import dev.jamesyox.svg4k.attr.attrs.y
+import dev.jamesyox.svg4k.attr.types.obj.SvgColor
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
+import dev.jamesyox.svg4k.attr.types.obj.SvgPaint
 import dev.jamesyox.svg4k.attr.types.obj.none
 import dev.jamesyox.svg4k.attr.types.obj.pct
 import dev.jamesyox.svg4k.consumers.svgString
@@ -105,6 +108,7 @@ class MpathTest {
 
         val actual = svgString(isPrettyPrint = true) {
             svg {
+                val path1 = SvgId("path1")
                 width = 100.pct
                 height = 100.pct
                 viewBox = ViewBox(0, 0, 500, 300)
@@ -113,37 +117,37 @@ class MpathTest {
                     y = 1.none
                     width = 498.none
                     height = 298.none
-                    fill = "none"
-                    stroke = "blue"
+                    fill = SvgPaint.None
+                    stroke(SvgColor.Blue)
                     strokeWidth = 2.none
                 }
                 path {
-                    id = "path1"
+                    id = path1
                     d {
                         M(100, 250)
                         C(100, 50, 400, 50, 400, 250)
                     }
-                    fill = "none"
-                    stroke = "blue"
+                    fill = SvgPaint.None
+                    stroke(SvgColor.Blue)
                     strokeWidth = 7.06.none
                 }
                 circle {
                     cx = 100.none
                     cy = 250.none
                     r = 17.64.none
-                    fill = "blue"
+                    fill(SvgColor.Blue)
                 }
                 circle {
                     cx = 250.none
                     cy = 100.none
                     r = 17.64.none
-                    fill = "blue"
+                    fill(SvgColor.Blue)
                 }
                 circle {
                     cx = 400.none
                     cy = 250.none
                     r = 17.64.none
-                    fill = "blue"
+                    fill(SvgColor.Blue)
                 }
                 path {
                     d {
@@ -152,15 +156,15 @@ class MpathTest {
                         L(0, -87.5)
                         Z
                     }
-                    fill = "yellow"
-                    stroke = "red"
+                    fill(SvgColor.Yellow)
+                    stroke(SvgColor.Red)
                     strokeWidth = 7.06.none
                     animateMotion {
                         dur = Dur.ClockValue(6.seconds)
                         repeatCount = RepeatCount.Indefinite
                         rotate = Rotate.Auto
                         mpath {
-                            href = "#path1"
+                            href(path1)
                         }
                     }
                 }

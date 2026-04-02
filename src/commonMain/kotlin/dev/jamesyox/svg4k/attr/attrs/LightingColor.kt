@@ -19,10 +19,10 @@ package dev.jamesyox.svg4k.attr.attrs
 
 import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
+import dev.jamesyox.svg4k.attr.set
+import dev.jamesyox.svg4k.attr.types.obj.SvgColor
 import dev.jamesyox.svg4k.meta.noGet
 import dev.jamesyox.svg4k.util.SetOnlyPropertyError
-
-// TODO: COLOR TYPE
 
 /**
  * The `lighting-color` attribute defines the color of the light source for lighting filter primitives.
@@ -31,7 +31,7 @@ context(
     ac: AttributeConsumer,
     _: AttributeContainer.LightingColor
 )
-public var lightingColor: String
+public var lightingColor: SvgColor
     @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {

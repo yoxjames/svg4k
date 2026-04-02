@@ -23,6 +23,8 @@ import dev.jamesyox.svg4k.attr.attrs.points
 import dev.jamesyox.svg4k.attr.attrs.stroke
 import dev.jamesyox.svg4k.attr.attrs.viewBox
 import dev.jamesyox.svg4k.attr.types.obj.Point
+import dev.jamesyox.svg4k.attr.types.obj.SvgColor
+import dev.jamesyox.svg4k.attr.types.obj.SvgPaint
 import dev.jamesyox.svg4k.consumers.svgString
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -61,8 +63,8 @@ class PolylineTest {
                         Point(150, 75),
                         Point(200, 0)
                     )
-                    fill = "none"
-                    stroke = "black"
+                    fill = SvgPaint.None
+                    stroke(SvgColor.Black)
                 }
             }
         }

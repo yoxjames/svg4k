@@ -27,7 +27,9 @@ import dev.jamesyox.svg4k.attr.attrs.viewBox
 import dev.jamesyox.svg4k.attr.attrs.width
 import dev.jamesyox.svg4k.attr.attrs.x
 import dev.jamesyox.svg4k.attr.attrs.y
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
 import dev.jamesyox.svg4k.attr.types.obj.none
+import dev.jamesyox.svg4k.attr.types.obj.url
 import dev.jamesyox.svg4k.consumers.svgString
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -60,12 +62,13 @@ class FeConvolveMatrixTest {
 
         val actual = svgString(isPrettyPrint = true) {
             svg {
+                val emboss = SvgId("emboss")
                 width = 200.none
                 height = 200.none
                 viewBox = ViewBox(0, 0, 200, 200)
                 defs {
                     filter {
-                        id = "emboss"
+                        id = emboss
                         feConvolveMatrix {
                             kernelMatrix = listOf(3, 0, 0, 0, 0, 0, 0, 0, -3)
                         }
@@ -76,8 +79,8 @@ class FeConvolveMatrixTest {
                     x = 0.none
                     y = 0.none
                     height = 200.none
-                    width= 200.none
-                    filter = "url(#emboss)"
+                    width = 200.none
+                    filter(emboss)
                 }
             }
         }

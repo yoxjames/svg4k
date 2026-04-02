@@ -21,10 +21,13 @@ import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
 import dev.jamesyox.svg4k.attr.SvgAttributeType
 import dev.jamesyox.svg4k.attr.set
+import dev.jamesyox.svg4k.attr.types.obj.SvgColor
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
+import dev.jamesyox.svg4k.attr.types.obj.SvgPaint
+import dev.jamesyox.svg4k.attr.types.obj.Url
+import dev.jamesyox.svg4k.attr.types.obj.asUrl
 import dev.jamesyox.svg4k.meta.noGet
 import dev.jamesyox.svg4k.util.SetOnlyPropertyError
-
-// TODO: Poor typing
 
 /**
  * Defines the color (or any SVG paint servers like gradients or patterns) used to paint the element
@@ -33,7 +36,7 @@ context(
     ac: AttributeConsumer,
     _: AttributeContainer.Fill.Presentational,
 )
-public var fill: String
+public var fill: SvgPaint
     @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
@@ -41,7 +44,53 @@ public var fill: String
     }
 
 /**
- * Defines the unsafe version of fill which simply takes a string so any value can be allowed.
+ * Defines the color (or any SVG paint servers like gradients or patterns) used to paint the element
+ *
+ * ```kotlin
+ * stroke = SvgPaint.Color(color)
+ * ```
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.Fill.Presentational,
+)
+public fun fill(color: SvgColor) {
+    fill = SvgPaint.Color(color)
+}
+
+/**
+ * Defines the color (or any SVG paint servers like gradients or patterns) used to paint the element
+ *
+ * ```kotlin
+ * stroke = SvgPaint.Color(url)
+ * ```
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.Fill.Presentational,
+)
+public fun fill(url: Url) {
+    fill = SvgPaint.Url(url)
+}
+
+
+/**
+ * Defines the color (or any SVG paint servers like gradients or patterns) used to paint the element
+ *
+ * Convenience method to set [fill] to a [SvgUrl] representing an id. For example: `id = url(#myId)`
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.Fill.Presentational,
+)
+public fun fill(id: SvgId) {
+    fill(id.asUrl())
+}
+
+/**
+ * Defines the color (or any SVG paint servers like gradients or patterns) used to paint the element.
+ *
+ * Used for unsafe so takes string as there's two types used for [fill]: [SvgPaint] and [FinalState]
  */
 context(
     ac: AttributeConsumer,
@@ -53,6 +102,49 @@ public var fill: String
     set(value) {
         ac["fill"] = value
     }
+
+/**
+ * Defines the color (or any SVG paint servers like gradients or patterns) used to paint the element
+ *
+ * ```kotlin
+ * stroke = SvgPaint.Color(color)
+ * ```
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.Fill.Unsafe,
+)
+public fun fill(color: SvgColor) {
+    fill = SvgPaint.Color(color).svgString
+}
+
+/**
+ * Defines the color (or any SVG paint servers like gradients or patterns) used to paint the element
+ *
+ * ```kotlin
+ * stroke = SvgPaint.Color(url)
+ * ```
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.Fill.Unsafe,
+)
+public fun fill(url: Url) {
+    fill = SvgPaint.Url(url).svgString
+}
+
+/**
+ * Defines the color (or any SVG paint servers like gradients or patterns) used to paint the element
+ *
+ * Convenience method to set [fill] to a [Url] representing an id. For example: `id = url(#myId)`
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.Fill.Unsafe,
+)
+public fun fill(id: SvgId) {
+    fill(id.asUrl())
+}
 
 /**
  * Final state of the animation

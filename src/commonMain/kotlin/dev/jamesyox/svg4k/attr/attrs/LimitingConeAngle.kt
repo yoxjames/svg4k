@@ -23,8 +23,6 @@ import dev.jamesyox.svg4k.attr.svgString
 import dev.jamesyox.svg4k.meta.noGet
 import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
-// TODO: COLOR TYPE
-
 /**
  * The `limitingConeAngle` attribute represents the angle in degrees between the spot light axis
  * (i.e., the axis between the light source and the point to which it is pointing at) and the spot light cone.

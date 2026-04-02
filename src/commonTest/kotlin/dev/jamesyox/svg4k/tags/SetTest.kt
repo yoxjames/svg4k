@@ -27,6 +27,7 @@ import dev.jamesyox.svg4k.attr.attrs.id
 import dev.jamesyox.svg4k.attr.attrs.to
 import dev.jamesyox.svg4k.attr.attrs.viewBox
 import dev.jamesyox.svg4k.attr.attrs.width
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
 import dev.jamesyox.svg4k.attr.types.obj.none
 import dev.jamesyox.svg4k.consumers.svgString
 import dev.jamesyox.svg4k.tags.categories.container.unaryPlus
@@ -78,7 +79,7 @@ class SetTest {
                     """.trimIndent()
                 }
                 rect {
-                    id = "me"
+                    id = SvgId("me")
                     width = 10.none
                     height = 10.none
                     set {

@@ -32,7 +32,10 @@ import dev.jamesyox.svg4k.attr.attrs.width
 import dev.jamesyox.svg4k.attr.attrs.x
 import dev.jamesyox.svg4k.attr.attrs.y
 import dev.jamesyox.svg4k.attr.types.obj.NumberOptionalNumber
+import dev.jamesyox.svg4k.attr.types.obj.SvgColor
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
 import dev.jamesyox.svg4k.attr.types.obj.none
+import dev.jamesyox.svg4k.attr.types.obj.url
 import dev.jamesyox.svg4k.consumers.svgString
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -78,10 +81,11 @@ class FeMergeTest {
 
         val actual = svgString(isPrettyPrint = true) {
             svg {
+                val feOffset = SvgId("feOffset")
                 width = 200.none
                 height = 200.none
                 filter {
-                    id = "feOffset"
+                    id = feOffset
                     x = (-40).none
                     y = (-20).none
                     width = 100.none
@@ -109,9 +113,9 @@ class FeMergeTest {
                     y = 40.none
                     width = 100.none
                     height = 100.none
-                    stroke = "black"
-                    fill = "green"
-                    filter = "url(#feOffset)"
+                    stroke(SvgColor.Black)
+                    fill(SvgColor.Green)
+                    filter(feOffset)
                 }
             }
         }

@@ -26,8 +26,10 @@ import dev.jamesyox.svg4k.attr.attrs.`in`
 import dev.jamesyox.svg4k.attr.attrs.width
 import dev.jamesyox.svg4k.attr.attrs.x
 import dev.jamesyox.svg4k.attr.attrs.y
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
 import dev.jamesyox.svg4k.attr.types.obj.none
 import dev.jamesyox.svg4k.attr.types.obj.pct
+import dev.jamesyox.svg4k.attr.types.obj.url
 import dev.jamesyox.svg4k.consumers.svgString
 import dev.jamesyox.svg4k.tags.categories.container.unaryPlus
 import kotlin.test.Test
@@ -72,6 +74,7 @@ class FeTileTest {
 
         val actual = svgString(isPrettyPrint = true) {
             svg {
+                val tile = SvgId("tile")
                 width = 200.none
                 height = 200.none
                 title {
@@ -79,7 +82,7 @@ class FeTileTest {
                 }
                 defs {
                     filter {
-                        id = "tile"
+                        id = tile
                         x = 0.none
                         y = 0.none
                         width = 100.pct
@@ -100,7 +103,7 @@ class FeTileTest {
                     y = 10.pct
                     width = 80.pct
                     height = 80.pct
-                    filter = "url(#tile)"
+                    filter(tile)
                 }
             }
         }

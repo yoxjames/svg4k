@@ -30,6 +30,8 @@ import dev.jamesyox.svg4k.attr.attrs.stopColor
 import dev.jamesyox.svg4k.attr.attrs.viewBox
 import dev.jamesyox.svg4k.attr.attrs.x
 import dev.jamesyox.svg4k.attr.attrs.y
+import dev.jamesyox.svg4k.attr.types.obj.SvgColor
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
 import dev.jamesyox.svg4k.attr.types.obj.none
 import dev.jamesyox.svg4k.attr.types.obj.pct
 import dev.jamesyox.svg4k.attr.types.obj.url
@@ -66,39 +68,41 @@ class DefsTest {
                     x="5"
                     y="5"
                     href="#myCircle"
-                    fill="url('#myGradient')" />
+                    fill="url(#myGradient)" />
             </svg>
         """.trimIndent()
         val actual = svgString(isPrettyPrint = true) {
             svg {
+                val myCircle = SvgId("myCircle")
+                val myGradient = SvgId("myGradient")
                 viewBox = ViewBox(0, 0, 10, 10)
                 defs {
                     circle {
-                        id = "myCircle"
+                        id = myCircle
                         cx = 0.none
                         cy = 0.none
                         r = 5.none
                     }
                     linearGradient {
-                        id = "myGradient"
+                        id = myGradient
                         gradientTransform {
                             rotate(90)
                         }
                         stop {
                             offset = 20.pct
-                            stopColor = "gold"
+                            stopColor = SvgColor.Gold
                         }
                         stop {
                             offset = 90.pct
-                            stopColor = "red"
+                            stopColor = SvgColor.Red
                         }
                     }
                 }
                 use {
                     x = 5.none
                     y = 5.none
-                    href = "#myCircle"
-                    fill = url("'#myGradient'").svgString
+                    href(myCircle)
+                    fill(myGradient)
                 }
             }
         }

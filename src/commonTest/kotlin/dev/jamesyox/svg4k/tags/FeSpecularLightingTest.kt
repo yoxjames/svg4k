@@ -41,7 +41,10 @@ import dev.jamesyox.svg4k.attr.attrs.width
 import dev.jamesyox.svg4k.attr.attrs.x
 import dev.jamesyox.svg4k.attr.attrs.y
 import dev.jamesyox.svg4k.attr.attrs.z
+import dev.jamesyox.svg4k.attr.types.obj.SvgColor
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
 import dev.jamesyox.svg4k.attr.types.obj.none
+import dev.jamesyox.svg4k.attr.types.obj.url
 import dev.jamesyox.svg4k.consumers.svgString
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -85,15 +88,16 @@ class FeSpecularLightingTest {
 
         val actual = svgString(isPrettyPrint = true) {
             svg {
+                val filter = SvgId("filter")
                 height = 200.none
                 width = 200.none
                 viewBox = ViewBox(0, 0, 220, 220)
                 filter {
-                    id = "filter"
+                    id = filter
                     feSpecularLighting {
                         result = "specOut"
                         specularExponent = 20
-                        lightingColor = "#bbbbbb"
+                        lightingColor = SvgColor.Hex(0xbbbbbb)
                         fePointLight {
                             x = 50
                             y = 75
@@ -114,7 +118,7 @@ class FeSpecularLightingTest {
                     cx = 110.none
                     cy = 110.none
                     r = 100.none
-                    filter = "url(#filter)"
+                    filter(filter)
                 }
             }
         }

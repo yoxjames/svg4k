@@ -19,6 +19,10 @@ package dev.jamesyox.svg4k.attr.attrs
 
 import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
+import dev.jamesyox.svg4k.attr.types.obj.Url
+import dev.jamesyox.svg4k.attr.types.obj.asUrl
+import dev.jamesyox.svg4k.attr.types.obj.url
 import dev.jamesyox.svg4k.meta.noGet
 import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
@@ -36,6 +40,34 @@ public var filter: String
     set(value) {
         ac["filter"] = value
     }
+
+/**
+ * The `filter` attribute specifies the filter effects defined by the [dev.jamesyox.svg4k.tags.Filter] element that
+ * shall be applied to its element.
+ *
+ * This is a convenience method to set a filter to a [Url]
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.Filter
+)
+public fun filter(url: Url) {
+    filter = url.svgString
+}
+
+/**
+ * The `filter` attribute specifies the filter effects defined by the [dev.jamesyox.svg4k.tags.Filter] element that
+ * shall be applied to its element.
+ *
+ * This is a convenience method to set a filter to a [Url] referencing a [SvgId]. For example: `url(#myId)`
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.Filter
+)
+public fun filter(id: SvgId) {
+    filter(id.asUrl())
+}
 
 // TODO: Missing Docs
 context(_: AttributeContainer.Filter)

@@ -19,6 +19,8 @@ package dev.jamesyox.svg4k.attr.attrs
 
 import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
+import dev.jamesyox.svg4k.attr.set
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
 import dev.jamesyox.svg4k.meta.noGet
 import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
@@ -38,7 +40,7 @@ context(
     ac: AttributeConsumer,
     _: AttributeContainer.Id
 )
-public var id: String
+public var id: SvgId
     @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {

@@ -38,6 +38,9 @@ import dev.jamesyox.svg4k.attr.attrs.x1
 import dev.jamesyox.svg4k.attr.attrs.x2
 import dev.jamesyox.svg4k.attr.attrs.y1
 import dev.jamesyox.svg4k.attr.attrs.y2
+import dev.jamesyox.svg4k.attr.types.obj.SvgColor
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
+import dev.jamesyox.svg4k.attr.types.obj.SvgPaint
 import dev.jamesyox.svg4k.attr.types.obj.Url
 import dev.jamesyox.svg4k.attr.types.obj.none
 import dev.jamesyox.svg4k.consumers.svgString
@@ -87,10 +90,11 @@ class MarkerTest {
 
         val actual = svgString(isPrettyPrint = true) {
             svg {
+                val arrow = SvgId("arrow")
                 viewBox = ViewBox(0, 0, 300, 100)
                 defs {
                     marker {
-                        id = "arrow"
+                        id = arrow
                         viewBox = ViewBox(0, 0, 10, 10)
                         refX = RefX.Value(5.none)
                         refY = RefY.Value(5.none)
@@ -112,8 +116,8 @@ class MarkerTest {
                     y1 = 10.none
                     x2 = 90.none
                     y2 = 90.none
-                    stroke = "black"
-                    markerEnd = Url("#arrow")
+                    stroke(SvgColor.Black)
+                    markerEnd(arrow)
                 }
                 path {
                     d {
@@ -122,11 +126,11 @@ class MarkerTest {
                         C(150, 0, 160, 0, 170, 10)
                         C(180, 20, 190, 20, 200, 10)
                     }
-                    stroke = "black"
-                    fill = "none"
-                    markerStart = Url("#arrow")
-                    markerMid = Url("#arrow")
-                    markerEnd = Url("#arrow")
+                    stroke(SvgColor.Black)
+                    fill = SvgPaint.None
+                    markerStart(arrow)
+                    markerMid(arrow)
+                    markerEnd(arrow)
                 }
             }
         }

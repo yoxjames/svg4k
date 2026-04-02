@@ -42,8 +42,11 @@ import dev.jamesyox.svg4k.attr.attrs.x2
 import dev.jamesyox.svg4k.attr.attrs.y
 import dev.jamesyox.svg4k.attr.attrs.y1
 import dev.jamesyox.svg4k.attr.attrs.y2
+import dev.jamesyox.svg4k.attr.types.obj.SvgColor
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
 import dev.jamesyox.svg4k.attr.types.obj.none
 import dev.jamesyox.svg4k.attr.types.obj.pct
+import dev.jamesyox.svg4k.attr.types.obj.url
 import dev.jamesyox.svg4k.consumers.svgString
 import dev.jamesyox.svg4k.tags.categories.container.unaryPlus
 import kotlin.test.Test
@@ -255,10 +258,16 @@ class FeComponentTransferTest {
 
         val actual = svgString(isPrettyPrint = true) {
             svg {
+                val rainbow = SvgId("rainbow")
+                val identity = SvgId("identity")
+                val table = SvgId("table")
+                val discrete = SvgId("discrete")
+                val linear = SvgId("linear")
+                val gamma = SvgId("gamma")
                 viewBox = ViewBox(0, 0, 600, 300)
                 defs {
                     linearGradient {
-                        id = "rainbow"
+                        id = rainbow
                         gradientUnits = GradientUnits.UserSpaceOnUse
                         x1 = 0.none
                         y1 = 0.none
@@ -266,31 +275,31 @@ class FeComponentTransferTest {
                         y2 = 0.none
                         stop {
                             offset(0)
-                            stopColor = "red"
+                            stopColor = SvgColor.Red
                         }
                         stop {
                             offset(0.2f)
-                            stopColor = "yellow"
+                            stopColor = SvgColor.Yellow
                         }
                         stop {
                             offset(0.4f)
-                            stopColor = "lime"
+                            stopColor = SvgColor.Lime
                         }
                         stop {
                             offset(0.6f)
-                            stopColor = "cyan"
+                            stopColor = SvgColor.Cyan
                         }
                         stop {
                             offset(0.8f)
-                            stopColor = "blue"
+                            stopColor = SvgColor.Blue
                         }
                         stop {
                             offset(1)
-                            stopColor = "purple"
+                            stopColor = SvgColor.Purple
                         }
                     }
                     filter {
-                        id = "identity"
+                        id = identity
                         x = 0.none
                         y = 0.none
                         width = 100.pct
@@ -311,7 +320,7 @@ class FeComponentTransferTest {
                         }
                     }
                     filter {
-                        id = "table"
+                        id = table
                         x = 0.none
                         y = 0.none
                         width = 100.pct
@@ -332,7 +341,7 @@ class FeComponentTransferTest {
                         }
                     }
                     filter {
-                        id = "discrete"
+                        id = discrete
                         x = 0.none
                         y = 0.none
                         width = 100.pct
@@ -353,7 +362,7 @@ class FeComponentTransferTest {
                         }
                     }
                     filter {
-                        id = "linear"
+                        id = linear
                         x = 0.none
                         y = 0.none
                         width = 100.pct
@@ -377,7 +386,7 @@ class FeComponentTransferTest {
                         }
                     }
                     filter {
-                        id = "gamma"
+                        id = gamma
                         x = 0.none
                         y = 0.none
                         width = 100.pct
@@ -427,7 +436,7 @@ class FeComponentTransferTest {
                         y = 80.none
                         width = 100.pct
                         height = 20.none
-                        filter = "url(#identity)"
+                        filter(identity)
                     }
                     text {
                         x = listOf(0.none)
@@ -439,7 +448,7 @@ class FeComponentTransferTest {
                         y = 130.none
                         width = 100.pct
                         height = 20.none
-                        filter = "url(#table)"
+                        filter(table)
                     }
                     text {
                         x = listOf(0.none)
@@ -451,7 +460,7 @@ class FeComponentTransferTest {
                         y = 180.none
                         width = 100.pct
                         height = 20.none
-                        filter = "url(#discrete)"
+                        filter(discrete)
                     }
                     text {
                         x = listOf(0.none)
@@ -463,7 +472,7 @@ class FeComponentTransferTest {
                         y = 230.none
                         width = 100.pct
                         height = 20.none
-                        filter = "url(#linear)"
+                        filter(linear)
                     }
                     text {
                         x = listOf(0.none)
@@ -475,7 +484,7 @@ class FeComponentTransferTest {
                         y = 280.none
                         width = 100.pct
                         height = 20.none
-                        filter = "url(#gamma)"
+                        filter(gamma)
                     }
                 }
             }

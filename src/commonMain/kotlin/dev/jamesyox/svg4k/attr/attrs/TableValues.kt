@@ -23,8 +23,6 @@ import dev.jamesyox.svg4k.attr.svgString
 import dev.jamesyox.svg4k.meta.noGet
 import dev.jamesyox.svg4k.util.SetOnlyPropertyError
 
-// TODO: Weak typing
-
 /**
  * The `tableValues` attribute defines a list of numbers defining a lookup table of values for a color component
  * transfer function.

@@ -34,6 +34,8 @@ import dev.jamesyox.svg4k.attr.attrs.width
 import dev.jamesyox.svg4k.attr.attrs.x
 import dev.jamesyox.svg4k.attr.attrs.y
 import dev.jamesyox.svg4k.attr.types.obj.Point
+import dev.jamesyox.svg4k.attr.types.obj.SvgColor
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
 import dev.jamesyox.svg4k.attr.types.obj.Url
 import dev.jamesyox.svg4k.attr.types.obj.none
 import dev.jamesyox.svg4k.consumers.svgString
@@ -83,6 +85,7 @@ class MaskTest {
         """.trimIndent()
 
         val actual = svgString(isPrettyPrint = true) {
+            val myMask = SvgId("myMask")
             svg {
                 viewBox = ViewBox(-10, -10, 120, 120)
                 rect {
@@ -90,17 +93,17 @@ class MaskTest {
                     y = (-10).none
                     width = 120.none
                     height = 120.none
-                    fill = "blue"
+                    fill(SvgColor.Blue)
                 }
                 mask {
-                    id = "myMask"
+                    id = myMask
                     maskType = MaskType.Luminance
                     rect {
                         x = 0.none
                         y = 0.none
                         width = 100.none
                         height = 100.none
-                        fill = "white"
+                        fill(SvgColor.White)
                     }
                     path {
                         d {
@@ -111,7 +114,7 @@ class MaskTest {
                             Q(x1 = 10, x2 = 65, x = 10, y = 35)
                             Z
                         }
-                        fill = "black"
+                        fill(SvgColor.Black)
                     }
                 }
                 polygon {
@@ -120,14 +123,14 @@ class MaskTest {
                         Point(110, 110),
                         Point(110, -10)
                     )
-                    fill = "orange"
+                    fill(SvgColor.Orange)
                 }
                 circle {
                     cx = 50.none
                     cy = 50.none
                     r = 50.none
-                    fill = "purple"
-                    mask = Url("#myMask")
+                    fill(SvgColor.Purple)
+                    mask(myMask)
                 }
             }
         }

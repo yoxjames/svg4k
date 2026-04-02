@@ -19,6 +19,8 @@ package dev.jamesyox.svg4k.attr.attrs
 
 import dev.jamesyox.svg4k.attr.AttributeConsumer
 import dev.jamesyox.svg4k.attr.AttributeContainer
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
+import dev.jamesyox.svg4k.attr.types.obj.asUrl
 import dev.jamesyox.svg4k.meta.noGet
 import dev.jamesyox.svg4k.tags.A
 import dev.jamesyox.svg4k.tags.FeImage
@@ -44,7 +46,8 @@ public var href: String
     }
 
 /**
- * For the `<animate>`, `<animateMotion>`, `<animateTransform>`, and `<set>`, href defines a URL referring to the
+ * For the [dev.jamesyox.svg4k.tags.Animate], [dev.jamesyox.svg4k.tags.AnimateMotion],
+ * [dev.jamesyox.svg4k.tags.AnimateTransform], and [Set], `href` defines a URL referring to the
  * element which is the target of this animation element and which therefore will be modified over time.
  *
  * The URL must point to exactly one target element which is capable of being the target of the given animation element.
@@ -75,6 +78,18 @@ public var href: String
     set(value) {
         ac["href"] = value
     }
+
+
+/**
+ * Convenience method which sets [href] to an id. For example: `#myId`
+ */
+context(
+    ac: AttributeConsumer,
+    _: AttributeContainer.Href
+)
+public fun href(id: SvgId) {
+    href = id.idString
+}
 
 /**
  * For `<feImage>`, href defines a URL referring to an image resource or to an element. If both, the `xlink:href` and
@@ -113,11 +128,11 @@ context(
     ac: AttributeConsumer,
     _: LinearGradient
 )
-public var href: String
+public var href: SvgId
     @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
-        ac["href"] = value
+        ac["href"] = value.idString
     }
 
 /**
@@ -128,11 +143,11 @@ context(
     ac: AttributeConsumer,
     _: RadialGradient
 )
-public var href: String
+public var href: SvgId
     @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
-        ac["href"] = value
+        ac["href"] = value.idString
     }
 
 /**
@@ -148,11 +163,11 @@ context(
     ac: AttributeConsumer,
     _: Pattern
 )
-public var href: String
+public var href: SvgId
     @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
-        ac["href"] = value
+        ac["href"] = value.idString
     }
 
 /**
@@ -177,9 +192,9 @@ context(
     ac: AttributeConsumer,
     _: TextPath
 )
-public var href: String
+public var href: SvgId
     @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {
-        ac["href"] = value
+        ac["href"] = value.idString
     }

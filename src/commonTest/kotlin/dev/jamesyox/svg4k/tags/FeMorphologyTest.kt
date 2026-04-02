@@ -25,6 +25,7 @@ import dev.jamesyox.svg4k.attr.attrs.radius
 import dev.jamesyox.svg4k.attr.attrs.width
 import dev.jamesyox.svg4k.attr.attrs.y
 import dev.jamesyox.svg4k.attr.types.obj.NumberOptionalNumber
+import dev.jamesyox.svg4k.attr.types.obj.SvgId
 import dev.jamesyox.svg4k.attr.types.obj.em
 import dev.jamesyox.svg4k.attr.types.obj.none
 import dev.jamesyox.svg4k.consumers.svgString
@@ -71,17 +72,21 @@ class FeMorphologyTest {
 
         val actual = svgString(isPrettyPrint = true) {
             svg {
+                val erode = SvgId("erode")
+                val dilate = SvgId("dilate")
+                val thin = SvgId("thin")
+                val thick = SvgId("thick")
                 width = 300.none
                 height = 180.none
                 filter {
-                    id = "erode"
+                    id = erode
                     feMorphology {
                         operator = MorphOperator.Erode
                         radius = NumberOptionalNumber(1, null)
                     }
                 }
                 filter {
-                    id = "dilate"
+                    id = dilate
                     feMorphology {
                         operator = MorphOperator.Dilate
                         radius = NumberOptionalNumber(2, null)
@@ -93,12 +98,12 @@ class FeMorphologyTest {
                 }
 
                 text {
-                    id = "thin"
+                    id = thin
                     y = listOf(2.em)
                     +"Thinned text"
                 }
                 text {
-                    id = "thick"
+                    id = thick
                     y = listOf(3.em)
                     +"Fattened text"
                 }

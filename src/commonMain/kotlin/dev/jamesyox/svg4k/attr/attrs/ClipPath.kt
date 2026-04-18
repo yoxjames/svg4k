@@ -59,7 +59,6 @@ public fun clipPath(value: UrlType) {
     clipPath = ClipPath.Url(value)
 }
 
-
 /**
  * The `clip-path` presentation attribute defines or associates a clipping path with the element it is related to.
  *

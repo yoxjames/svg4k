@@ -26,5 +26,6 @@ public class NumberOptionalNumber(
     number: Number,
     optionalNumber: Number?,
 ) : SvgAttributeType {
+    public constructor(number: Number) : this(number, null)
     override val svgString: String = "$number" + (optionalNumber?.let { ", $it" } ?: "")
 }

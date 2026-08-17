@@ -30,7 +30,7 @@ context(
     ac: AttributeConsumer,
     _: AttributeContainer.FilterUnits
 )
-public var filterUnits: FillRule
+public var filterUnits: FilterUnits
     @Deprecated(SetOnlyPropertyError, level = DeprecationLevel.ERROR)
     get() = noGet()
     set(value) {

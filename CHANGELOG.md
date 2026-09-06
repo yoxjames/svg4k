@@ -1,6 +1,11 @@
-## 0.2.0 (Upcoming)
+## 0.2.0
 * Added convenience functions for `fontSize` for `FontSize.Value` types.
   * `fontSize = FontSize.Value(12.none)` can now be written as `fontSize(12)` or `fontSize(12.none)`
+* Added convenience constructor for `NumberOptionalNumber` removing the need to pass the second null.
+  * `NumberOptionalNumber(12)` is now a valid call
+  * This change was contributed by [Voidi](https://github.com/Voidi) (Tobias Wohlfarth) for his contribution!
+* Bugfix: `filterUnits` attribute is no longer of type `FillRule` but instead is of type `FilterUnits` as it should be.
+  * This change was contributed by [Voidi](https://github.com/Voidi) (Tobias Wohlfarth) for his contribution!
 
 ## 0.1.0
 * Renamed library to svg4kt.

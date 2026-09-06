@@ -17,11 +17,11 @@ groupId: `dev.jamesyox`
 
 artifactId: `svg4kt`
 
-version: `0.1.0`
+version: `0.2.0`
 
 If you use Gradle you should be able to add the following to your dependencies to use svg4kt:
 ```kotlin
-implementation("dev.jamesyox:svg4kt:0.1.0")
+implementation("dev.jamesyox:svg4kt:0.2.0")
 ```
 
 You are now free to use this in a project, however you _must_ enable context parameters. This library is based around
@@ -37,7 +37,7 @@ kotlin {
     }
 }
 // ....
-implementation("dev.jamesyox:svg4kt:0.1.0")
+implementation("dev.jamesyox:svg4kt:0.2.0")
 ```
 
 ### Stream
